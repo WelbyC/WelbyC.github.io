@@ -1,20 +1,37 @@
 body {
   margin: 30px auto;
-  max-width: 1000px;
+  max-width: 60%;
   font-family: "Helvetica", "Arial", sans-serif;
   line-height: 1.5;
   padding: 30px 20px;
+  text-align: center;
 }
 
 h1 {
   padding: 20px 0px 10px 0px;
 }
 
-body {
-text-align: center;
-}
+/* This changes color and removes default underline in links  */
 
 a {
 color: #69CBBB;
 text-decoration: none;
+}
+
+/* Centers images */
+
+img {
+  display: block;
+  margin: 0px auto;
+  width: 100%;
+}
+
+/* When you put a period in front of a CSS declaration, it indicates you are
+creating a new class. We can apply this to div elements to create different
+portfolio entries */
+
+.portfolio-item {
+  margin-top: 60px;
+  padding: 40px;
+  background-color: #f7f7f7;
 }
