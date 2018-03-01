@@ -9,3 +9,12 @@ body {
 h1 {
   padding: 20px 0px 10px 0px;
 }
+
+body {
+text-align: center;
+}
+
+a {
+color: #69CBBB;
+text-decoration: none;
+}
