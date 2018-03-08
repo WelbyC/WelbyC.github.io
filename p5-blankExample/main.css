@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica", "Arial", sans-serif;
+  line-height: 1.5;
+  text-align: center;
+}
+
+canvas {
+  margin: auto;
+
+  /* uncomment lines below if you want your canvas to cover the whole page
+  you will also have to create canvas to the window dimensions
+  in your p5 sketch, use: createCanvas(windowWidth, windowHeight); */
+  /* top: 0;
+  left: 0;
+  position: absolute; */
+}
