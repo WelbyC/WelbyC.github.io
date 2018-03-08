@@ -10,8 +10,9 @@ function draw() {
 	// fill is bright green
 	fill(0, 255, 0);
 	// stroke is white
-	stroke(255, 255, 255);
+	stroke('red');
 	strokeWeight(1); // reset to default
+	ellipseMode(CORNER);
 	ellipse(100, 100, 80, 80);
 
 	// make transparent rectangle
@@ -22,7 +23,7 @@ function draw() {
 	rect(100, 100, 80, 80);
 
 	// stroke weight will set thickness of line
-	stroke(100, 200, mouseY, mouseX);
+	stroke(255, 0, mouseY, mouseX);
 	strokeWeight(5);
 	line(100, 100, mouseX, mouseY);
 }
