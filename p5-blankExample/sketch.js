@@ -5,6 +5,7 @@ function setup() {
   background(150);
 
   // draw ellipse
+  ellipseMode(CORNER);
   ellipse(100, 100, 80, 80);
 
   // draw rectangle
