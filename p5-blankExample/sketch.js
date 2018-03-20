@@ -8,7 +8,7 @@ function draw() {
 
 	// create bright green ellipse with white stroke
 	// fill is bright green
-	fill(0, 255, 0);
+	fill(0, 0, 0);
 	// stroke is white
 	stroke('red');
 	strokeWeight(1); // reset to default
@@ -23,7 +23,7 @@ function draw() {
 	rect(100, 100, 80, 80);
 
 	// stroke weight will set thickness of line
-	stroke(255, 0, mouseY, mouseX);
+	stroke(0, 0, mouseY, mouseX);
 	strokeWeight(5);
 	line(100, 100, mouseX, mouseY);
 }
