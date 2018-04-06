@@ -96,34 +96,34 @@ bubble4.move(-5, 7, -10, 10);
   }
   if (bubble2.x < 0) {
   bubble2.x = width;
-  r = random(255);
-  g = random(255);
-  b = random(255);
+  r1 = random(255);
+  g1 = random(255);
+  b1 = random(255);
   }
   if (bubble2.x > width) {
   bubble2.x = 0;
-  r3 = random(255);
-  g3 = random(255);
-  b3 = random(255);
+  r1 = random(255);
+  g1 = random(255);
+  b1 = random(255);
   }
 
 
   if (bubble3.x < 0) {
    bubble3.x = width;
-  r3 = random(255);
-  g3 = random(255);
-  b3 = random(255);
+  r2 = random(255);
+  g2 = random(255);
+  b2 = random(255);
   if (bubble3.y < 0) {
   bubble3.y = width;
-  r = random(255);
-  g = random(255);
-  b = random(255);
+  r2 = random(255);
+  g2 = random(255);
+  b2 = random(255);
   }
   if (bubble3.y > width) {
   bubble3.y = 0;
-  r3 = random(255);
-  g3 = random(255);
-  b3 = random(255);
+  r2 = random(255);
+  g2 = random(255);
+  b2 = random(255);
   }
 
   }
@@ -135,9 +135,9 @@ bubble4.move(-5, 7, -10, 10);
   }
   if (bubble4.y < 0) {
   bubble4.y = width;
-  r = random(255);
-  g = random(255);
-  b = random(255);
+  r3 = random(255);
+  g3 = random(255);
+  b3 = random(255);
   }
   if (bubble4.y > width) {
   bubble4.y = 0;
