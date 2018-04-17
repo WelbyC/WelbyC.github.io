@@ -80,11 +80,20 @@ function draw() {
   background(0);
   //setGradient(0, 0, 1200, 1200, c1, c2, Y_AXIS);
   if(r==r1&r==r2&r==r3){
-  image(viral1,0,0); // draw a second copy to canvas
-  image(viral2,400,0,400,350); // draw a second copy to canvas
-  image(viral3,0,400,400,400); // draw a second copy to canvas
-  image(viral4,400,400); // draw a second copy to canvas
+//  if (count = 0){
+  image(viral1,0,0, 400, 400); // draw a second copy to canvas
+//}
+//  if (count = 1){
+  image(viral2,width/2,0,400,400); // draw a second copy to canvas
+//}
+//  if (count = 2){
+  image(viral3,0,height/2,400,400); // draw a second copy to canvas
+//}
+//  if (count = 3){
+  image(viral4,width/2,height/2,400, 400); // draw a second copy to canvas
+//}
 
+//count+1;
 }
 
 
@@ -98,10 +107,10 @@ bubble2.make(r1,b1,g1);
 bubble3.make(r2,b2,g2);
 bubble4.make(r3,b3,g3);
 
-bubble1.move(-5, 5, -5, 7);
-bubble2.move(-5, 5, -7, 5);
-bubble3.move(-7, 5, -5, 5);
-bubble4.move(-5, 7, -5, 5);
+bubble1.move(-3, 3, -3, 5);
+bubble2.move(-3, 3, -5, 3);
+bubble3.move(-5, 3, -3, 3);
+bubble4.move(-3, 5, -3, 3);
   
   // Reset to the bottom
   if (bubble1.y < 0) {
