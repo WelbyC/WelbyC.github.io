@@ -7,11 +7,13 @@ var r3, g3, b3;
 var x, y, x1, y1, x2, y2,x3,y3;
 let n1, n2, n3, n4;
 let bubble1,bubble2,bubble3,bubble4;
+let count =0;
+let viral1, viral2, viral3, viral4;
 
-//var Y_AXIS = 1;
-//var X_AXIS = 2;
-//var b1, b2, c1, c2;
-
+function preload() {
+  viral2 = loadImage('viral2.png')
+  viral3 = loadImage('viral3.png')
+}
 function setup() {
   createCanvas(800, 800);
   // Pick colors randomly
@@ -50,22 +52,56 @@ function setup() {
 
   bubble4 = new Bubble(x3,y3,200,200);
 
-  
+  viral1 = createVideo(['viral1.mov','viral1.mp4']);
+  viral1.hide(); 
+  viral1.volume(0);                 
+  viral1.loop();
+/*
+  viral2 = createVideo(['viral2.mov','viral2.mp4']);
+  viral2.hide(); 
+  viral2.volume(0);                 
+  viral2.loop();
+
+  viral3 = createVideo(['viral3.mov','viral3.mp4']);
+  viral3.hide(); 
+  viral3.volume(0);                 
+  viral3.loop();
+*/
+
+  viral4 = createVideo(['viral4.mov','viral4.mp4']);
+  viral4.hide(); 
+  viral4.volume(0);                 
+  viral4.loop();
+
+
 }
 
 function draw() {
   background(0);
   //setGradient(0, 0, 1200, 1200, c1, c2, Y_AXIS);
+  if(r==r1&r==r2&r==r3){
+  image(viral1,0,0); // draw a second copy to canvas
+  image(viral2,400,0,400,350); // draw a second copy to canvas
+  image(viral3,0,400,400,400); // draw a second copy to canvas
+  image(viral4,400,400); // draw a second copy to canvas
+
+}
+
+
+
+
+
+
 
 bubble1.make(r,b,g);
 bubble2.make(r1,b1,g1);
 bubble3.make(r2,b2,g2);
 bubble4.make(r3,b3,g3);
 
-bubble1.move(-10, 10, -5, 7);
-bubble2.move(-10, 10, -7, 5);
-bubble3.move(-7, 5, -10, 10);
-bubble4.move(-5, 7, -10, 10);
+bubble1.move(-5, 5, -5, 7);
+bubble2.move(-5, 5, -7, 5);
+bubble3.move(-7, 5, -5, 5);
+bubble4.move(-5, 7, -5, 5);
   
   // Reset to the bottom
   if (bubble1.y < 0) {
@@ -161,7 +197,8 @@ bubble4.move(-5, 7, -10, 10);
   g3 = g;
   b3 = b
   }
-  
+
+ 
 
   
 }
@@ -232,24 +269,3 @@ class Bubble{
 
   }
 }
- /* function setGradient(a, t, w, h, c1, c2, axis) {
-
-  noFill();
-
-  if (axis == Y_AXIS) {  // Top to bottom gradient
-    for (var i = t; i <= t+h; i++) {
-      var inter = map(i, t, t+h, 0, 1);
-      var c = lerpColor(c1, c2, inter);
-      stroke(c);
-      line(a, i, a+w, i);
-    }
-  }
-  else if (axis == X_AXIS) {  // Left to right gradient
-    for (var i = a; i <= a+w; i++) {
-      var inter = map(i, a, a+w, 0, 1);
-      var c = lerpColor(c1, c2, inter);
-      stroke(c);
-      line(i, t, i, t+h);
-    }
-  }
-  */
