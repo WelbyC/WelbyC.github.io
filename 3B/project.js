@@ -8,6 +8,7 @@ let viral1, viral2, viral3, viral4;
 var virus;
 var MARGIN = 100;
 var sprites;
+let goneViral;
 
 function preload() {
   viral2 = loadImage('viral2.png')
@@ -16,17 +17,24 @@ function preload() {
 
 
 }
+function setup(){
 
-function setup() {
-  createCanvas(800, 800);
+	startSketch();
+}
+
+
+function startSketch() {
+	goneViral = true;
+  createCanvas(windowWidth, windowHeight);
  virus = createSprite(width/2,0,100,100);
- virus.addAnimation("floating","virus_0.png","virus_1.png","virus_1.png");
+ virus.addAnimation("virus","virus_0.png","virus_1.png","virus_1.png");
+ virus.setCollider("circle",0,0,50);
  x = 90;
  
 
  sprites = new Group();
 
-for(var i = 0; i<20; i++) {
+for(var i = 0; i<150; i++) {
   var ang = random(360);
   var px = width/2 + 1000 * cos(radians(ang));
   var py = height/2+ 1000 * sin(radians(ang));
@@ -69,9 +77,27 @@ function draw() {
   if(s.position.x>width+MARGIN) s.position.x = -MARGIN;
   if(s.position.y<-MARGIN) s.position.y = height+MARGIN;
   if(s.position.y>height+MARGIN) s.position.y = -MARGIN;
+ // console.log(s.getAnimationLabel());
   }
   
+ 
+ 
+  for(var i=0; i<allSprites.length; i++) {
+  var a = allSprites[i];
+  	for(var j=0; j<allSprites.length; j++){
+	var b = allSprites[j];
+ 	if(a.getAnimationLabel()=="virus"&&b.getAnimationLabel()!="virus") 
+ 	{
+ 		if(a.overlap(b)) b.changeAnimation(virus.getAnimationLabel());
+ 	}
+	
+}
+//console.log(a.getAnimationLabel());
+}
 
+if(goneViral==true){
+	text("It can't be stopped", width/2,height/2);
+}
 drawSprites();
 
 
@@ -79,8 +105,12 @@ drawSprites();
 
 function createPixels(type, x, y) {
   var a = createSprite(x, y);
-  var img  = loadImage("laugh"+floor(random(0,1))+".png");
-  a.addImage(img);
+  //var img  = loadImage("laugh0"/*+floor(random(0,1))*/+".png");
+ // var img2 = loadImage("laugh1.png");
+
+  a.addAnimation("laugh","laugh1.png","laugh0.png","laugh0.png");
+  a.addAnimation("virus","virus_0.png","virus_1.png","virus_1.png");
+ 
   a.setSpeed(2.5-(type/2), random(360));
   a.rotationSpeed = .5;
   //a.debug = true;
@@ -92,7 +122,14 @@ function createPixels(type, x, y) {
     a.scale = .3;
   
   a.mass = 2+a.scale;
-  a.setCollider("circle", 0, 0, 100);
+  a.setCollider("circle", 0, 0, 50);
   sprites.add(a);
   return a;
 } 
+
+function allVirus(){
+	//display text
+goneViral= true;
+setTimeout(startSketch,5000);
+
+}
