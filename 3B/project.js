@@ -9,6 +9,8 @@ var virus;
 var MARGIN = 100;
 var sprites;
 let goneViral;
+let buttonPressed;
+let label;
 
 function preload() {
   viral2 = loadImage('viral2.png')
@@ -24,7 +26,8 @@ function setup(){
 
 
 function startSketch() {
-	goneViral = true;
+	goneViral = false;
+	buttonPressed = false;
   createCanvas(windowWidth, windowHeight);
  virus = createSprite(width/2,0,100,100);
  virus.addAnimation("virus","virus_0.png","virus_1.png","virus_1.png");
@@ -34,7 +37,7 @@ function startSketch() {
 
  sprites = new Group();
 
-for(var i = 0; i<150; i++) {
+for(var i = 0; i<120; i++) {
   var ang = random(360);
   var px = width/2 + 1000 * cos(radians(ang));
   var py = height/2+ 1000 * sin(radians(ang));
@@ -89,17 +92,41 @@ function draw() {
  	if(a.getAnimationLabel()=="virus"&&b.getAnimationLabel()!="virus") 
  	{
  		if(a.overlap(b)) b.changeAnimation(virus.getAnimationLabel());
+
  	}
-	
+
 }
 //console.log(a.getAnimationLabel());
 }
 
+for (i=1;i<allSprites.length;i++){
+var a = allSprites[0];
+if(a.getAnimationLabel() === allSprites[i].getAnimationLabel()){
+goneViral=true;
+}
+else{
+goneViral = false;
+}
+}
+
+
+/*
+if(checkSprites()==true){
+goneViral = true;
+buttonPressed == true;
+	//	allVirus();
+
+}
+*/
 if(goneViral==true){
+	textSize(100);
+	fill('red');
 	text("It can't be stopped", width/2,height/2);
+
 }
 drawSprites();
-
+console.log(goneViral);
+//console.log(buttonPressed);
 
 }
 
@@ -129,7 +156,14 @@ function createPixels(type, x, y) {
 
 function allVirus(){
 	//display text
-goneViral= true;
+//goneViral= true;
 setTimeout(startSketch,5000);
 
+}
+function checkName(name) {
+    return label=virus.getAnimationLabel();
+}
+
+function checkSprites() {
+   allSprites.every(checkName);
 }
