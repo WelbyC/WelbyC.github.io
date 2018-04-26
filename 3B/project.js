@@ -62,19 +62,20 @@ for(var i = 0; i<120; i++) {
 
 }
 
-function draw() {
-  background(0);
-  x=x+random(-1,1);
-  virus.setSpeed(1, x);
+function draw(){
+background(0);
+x=x+random(-1,1);
+virus.setSpeed(1, x);
   
-  image(viral1,0,0, 400, 400); 
+if(goneViral == true){
+image(viral1,width/2-400,height/2-400, 400, 400); 
 
-  image(viral2,width/2,0,400,400);
+image(viral2,width/2,height/2-400,400,400);
 
-  image(viral3,0,height/2,400,400); 
+image(viral3,width/2-400,height/2,400,400); 
 
-  image(viral4,width/2,height/2,400, 400);
-
+image(viral4,width/2,height/2,400, 400);
+}
 
 
   for(var i=0; i<allSprites.length; i++) {
