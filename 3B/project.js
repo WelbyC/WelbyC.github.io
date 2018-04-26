@@ -9,6 +9,7 @@ var virus;
 var MARGIN = 100;
 var sprites;
 let goneViral;
+let virusCounter;
 
 function preload() {
   viral2 = loadImage('viral2.png')
@@ -25,20 +26,25 @@ function setup(){
 
 function startSketch() {
 	goneViral = true;
-  createCanvas(windowWidth, windowHeight);
- virus = createSprite(width/2,0,100,100);
- virus.addAnimation("virus","virus_0.png","virus_1.png","virus_1.png");
- virus.setCollider("circle",0,0,50);
- x = 90;
+	virusCounter = 0;
+	createCanvas(windowWidth, windowHeight);
+	virus = createSprite(width/2,0,100,100);
+	virus.addAnimation("virus","virus_0.png","virus_1.png","virus_1.png");
+	virus.setCollider("circle",0,0,50);
+	x = 90;
  
 
  sprites = new Group();
 
-for(var i = 0; i<150; i++) {
+for(var i = 0; i<120; i++) {
+   
+
+
   var ang = random(360);
   var px = width/2 + 1000 * cos(radians(ang));
   var py = height/2+ 1000 * sin(radians(ang));
   createPixels(3, px, py);
+
   }
 
   
@@ -95,7 +101,26 @@ function draw() {
 //console.log(a.getAnimationLabel());
 }
 
+
+for (i=0;i<allSprites.length;i++){
+
+    if("virus" === allSprites[i].getAnimationLabel()){
+        virusCounter += 1;
+    }
+    if(virusCounter >= allSprites.length){
+    	goneViral = true;
+	}
+    else
+    {
+    	goneViral = false;
+	}
+
+}
+//console.log(virusCounter);
+virusCounter = 0;
+//console.log(goneViral);
 if(goneViral==true){
+	fill('red');
 	text("It can't be stopped", width/2,height/2);
 }
 drawSprites();
@@ -104,11 +129,26 @@ drawSprites();
 }
 
 function createPixels(type, x, y) {
+ 
+let numberChoices = [0,1,2];
+let r = random(numberChoices);
+console.log(r);
   var a = createSprite(x, y);
-  //var img  = loadImage("laugh0"/*+floor(random(0,1))*/+".png");
- // var img2 = loadImage("laugh1.png");
 
+ 
+  if(r = 0){
   a.addAnimation("laugh","laugh1.png","laugh0.png","laugh0.png");
+
+  }
+  else if(r = 1){
+  a.addAnimation("mystery","mystery1.png","mystery0.png","mystery0.png");
+
+  }
+  else if(r = 2){
+  a.addAnimation("ninja","ninja0.png","ninja1.png","ninja2.png","ninja2.png");
+  }
+ 
+
   a.addAnimation("virus","virus_0.png","virus_1.png","virus_1.png");
  
   a.setSpeed(2.5-(type/2), random(360));
@@ -124,12 +164,14 @@ function createPixels(type, x, y) {
   a.mass = 2+a.scale;
   a.setCollider("circle", 0, 0, 50);
   sprites.add(a);
+
   return a;
+
 } 
 
 function allVirus(){
 	//display text
-goneViral= true;
+
 setTimeout(startSketch,5000);
 
 }
