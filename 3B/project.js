@@ -140,11 +140,11 @@ console.log(r);
   a.addAnimation("laugh","laugh1.png","laugh0.png","laugh0.png");
 
   }
-  else if(r = 1){
+  if(r = 1){
   a.addAnimation("mystery","mystery1.png","mystery0.png","mystery0.png");
 
   }
-  else if(r = 2){
+  if(r = 2){
   a.addAnimation("ninja","ninja0.png","ninja1.png","ninja2.png","ninja2.png");
   }
  
