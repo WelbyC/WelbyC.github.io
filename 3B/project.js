@@ -121,14 +121,15 @@ virusCounter = 0;
 //console.log(goneViral);
 if(goneViral==true){
 	fill('red');
+	textSize(100);
 	text("It can't be stopped", width/2,height/2);
-	goneViral == false;
-
+//	goneViral == false;
+/*
 for (i=0;i<allSprites.length;i++){
 	 allSprites[i].remove();
 }
-
-	allVirus();
+*/
+//	allVirus();
 
 }
 drawSprites();
@@ -153,21 +154,6 @@ var a = createSprite(x, y);
 
   a.changeAnimation(random(numberChoices));
 
-
-
- /*
-  if(r = 'a'){
-  a.changeAnimation('laugh');
-
-  }
-  else if(r = 'b'){
-  a.changeAnimation('mystery');
-
-  }
-  else if(r = 'c'){
-  a.changeAnimation('ninja');
-  }
-*/
 
   a.setSpeed(2.5-(type/2), random(360));
   a.rotationSpeed = .5;
