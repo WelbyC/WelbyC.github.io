@@ -122,8 +122,11 @@ virusCounter = 0;
 //console.log(goneViral);
 if(goneViral==true){
 	fill('red');
-	textSize(100);
-	text("It can't be stopped", width/2,height/2);
+	textSize(80);
+	text("It can't be stopped", random(200, 800),random(200, 800));
+	fill('red');
+	textSize(90);
+	text("DO you no Da Wae?", random(200, 800),random(200, 800));
 //	goneViral == false;
 /*
 for (i=0;i<allSprites.length;i++){
@@ -147,30 +150,30 @@ var a = createSprite(x, y);
 
  
 
-  a.addAnimation('laugh','laugh1.png','laugh0.png','laugh0.png'); 
-  a.addAnimation('mystery','mystery1.png','mystery0.png','mystery0.png');
-  a.addAnimation('ninja','ninja0.png','ninja1.png','ninja2.png','ninja2.png');
-  a.addAnimation('virus','virus_0.png','virus_1.png','virus_1.png');
+a.addAnimation('laugh','laugh1.png','laugh0.png','laugh0.png'); 
+a.addAnimation('mystery','mystery1.png','mystery0.png','mystery0.png');
+a.addAnimation('ninja','ninja0.png','ninja1.png','ninja2.png','ninja2.png');
+a.addAnimation('virus','virus_0.png','virus_1.png','virus_1.png');
  
 
-  a.changeAnimation(random(numberChoices));
+a.changeAnimation(random(numberChoices));
 
 
-  a.setSpeed(2.5-(type/2), random(360));
-  a.rotationSpeed = .5;
+a.setSpeed(2.5-(type/2), random(360));
+a.rotationSpeed = .5;
   //a.debug = true;
-  a.type = type;
+a.type = type;
   
-  if(type == 2)
+if(type == 2)
     a.scale = .6;
-  if(type == 1)
+if(type == 1)
     a.scale = .3;
   
-  a.mass = 2+a.scale;
-  a.setCollider("circle", 0, 0, 50);
-  sprites.add(a);
+a.mass = 2+a.scale;
+a.setCollider("circle", 0, 0, 50);
+sprites.add(a);
 
-  return a;
+return a;
 
 } 
 
