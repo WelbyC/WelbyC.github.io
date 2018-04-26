@@ -10,12 +10,36 @@ var MARGIN = 100;
 var sprites;
 let goneViral;
 let virusCounter;
+let counter = 0;
+let song;
+let xx = 3000;
+let speed=0;
+let knuckle;
+let fast = false;
+function preload(){
+
+song = loadSound('Running90s.mp3');
+song.setVolume(0.06);
 
 
+viral2 = loadImage('viral2.png');
+viral3 = loadImage('viral3.png');
+uhoh = loadImage('uhoh.jpg');
+ugandan = loadImage('ugandan.png');
+harambe = loadImage('harambe.jpg');
+lamb = loadImage('lamb.png');
+mark = loadImage('mark.png');
+knuckles = loadImage('knuckles.jpg');
+knuckles2 = loadImage('knuckles2.jpg');
+flat = loadImage('flat.jpg');
+tired = loadImage('tired.jpg');
+doctor = loadImage('doctor.jpg');
+}
 function setup(){
 
 	startSketch();
-
+	song.play();
+  
 }
 
 
@@ -27,7 +51,7 @@ function startSketch() {
 
 
 	createCanvas(windowWidth, windowHeight);
-	virus = createSprite(width/2,0,100,100);
+	virus = createSprite(width/2,0,150,100);
 	virus.addAnimation("virus","virus_0.png","virus_1.png","virus_1.png");
 	virus.setCollider("circle",0,0,50);
 	x = 90;
@@ -35,29 +59,27 @@ function startSketch() {
 
  sprites = new Group();
 
-for(var i = 0; i<120; i++) {
-   
+for(var i = 0; i<300; i++) {
+var ang = random(360);
+var px = width/2 + 1000 * cos(radians(ang));
+var py = height/2+ 1000 * sin(radians(ang));
+createPixels(3, px, py);
+
+}
 
 
-  var ang = random(360);
-  var px = width/2 + 1000 * cos(radians(ang));
-  var py = height/2+ 1000 * sin(radians(ang));
-  createPixels(3, px, py);
 
-  }
 
-  viral2 = loadImage('viral2.png')
-  viral3 = loadImage('viral3.png')
+viral1 = createVideo(['viral1.mov','viral1.mp4']);
+viral1.hide(); 
+viral1.volume(0);                 
+viral1.loop();
 
-  viral1 = createVideo(['viral1.mov','viral1.mp4']);
-  viral1.hide(); 
-  viral1.volume(0);                 
-  viral1.loop();
+viral4 = createVideo(['viral4.mov','viral4.mp4']);
+viral4.hide(); 
+viral4.volume(0);                 
+viral4.loop();
 
-  viral4 = createVideo(['viral4.mov','viral4.mp4']);
-  viral4.hide(); 
-  viral4.volume(0);                 
-  viral4.loop();
 
 
 }
@@ -65,8 +87,18 @@ for(var i = 0; i<120; i++) {
 function draw(){
 background(0);
 x=x+random(-1,1);
-virus.setSpeed(1, x);
-  
+virus.setSpeed(2, x);
+
+image(mark,width/2-800,height/2-400, 400, 400); 
+
+image(lamb,width/2+400,height/2-400,400,400);
+
+image(ugandan,width/2-800,height/2,400,600); 
+
+image(harambe,width/2+400,height/2,400, 600);
+
+
+
 if(goneViral == true){
 image(viral1,width/2-400,height/2-400, 400, 400); 
 
@@ -75,8 +107,59 @@ image(viral2,width/2,height/2-400,400,400);
 image(viral3,width/2-400,height/2,400,400); 
 
 image(viral4,width/2,height/2,400, 400);
+
+
+
+
+
+if (speed >3||speed<-6)
+{
+fast =true;
+}
+if (fast==true){
+image(tired,width/2+800,height/2-400,500,400);
+image(flat,width/2-1200,height/2-400,400, 400);
+image(uhoh,width/2-1250,height/2,500, 600);
+image(doctor,width/2+800,height/2,500, 700);
 }
 
+}
+//console.log(speed);
+if(goneViral==true){
+	fill('red');
+	textSize(50);
+	text("Zoo tries to stop Harambe meme", width/2+200,height/2-400);
+	text("He can not be stopped!", width/2+200,height/2-200);
+	fill('green');
+	textSize(50);
+	text("Listen here kid... I’ll have you know I graduated top of my class in the Navy Seals, and I’ve been involved in numerous secret raids on Al-Quaeda, and I have over 300 confirmed kills.  I am trained in gorilla warfare and I’m the top sniper in the entire US armed forces. You are nothing to me but just another target. I will wipe you the fuck out with precision the likes of which has never been seen before on this Earth, mark my fucking words. You think you can get away with saying that shit to me over the Internet? Think again, fucker. As we speak I am contacting my secret network of spies across the USA and your IP is being traced right now so you better prepare for the storm, maggot. The storm that wipes out the pathetic little thing you call your life. You’re fucking dead, kid. I can be anywhere, anytime, and I can kill you in over seven hundred ways, and that’s just with my bare hands. Not only am I extensively trained in unarmed combat, but I have access to the entire arsenal of the United States Marine Corps and I will use it to its full extent to wipe your miserable ass off the face of the continent, you little shit. If only you could have known what unholy retribution your little “clever” comment was about to bring down upon you, maybe you would have held your fucking tongue. But you couldn’t, you didn’t, and now you’re paying the price, you goddamn idiot. I will shit fury all over you and you will drown in it. You’re fucking dead, kiddo... suka blet", width - counter,height/2);
+	counter = counter+20;
+	fill('red');
+	textSize(60);
+	text("DO you no Da Wae?", random(200, 800),random(200, 800));
+	fill('blue');
+	textSize(50);
+	text("Where is the queen?", random(200, 800),random(200, 800));
+
+}
+
+
+ if (xx <= -600) {
+    knuckle = knuckles2;
+    speed = speed+3;
+  } else if (xx >= width+100) {
+    knuckle = knuckles;
+    speed = -speed-3;
+  }
+
+ image(knuckle, xx, height/2,400,200 );
+ image(knuckle, xx+500, height/2+400,400,200 );
+ image(knuckle, xx+600, height/2-400,400,200 );
+ image(knuckle, xx+900, height/2+300,400,200 );
+ image(knuckle, xx+900, height/2-700,400,200 );
+ image(knuckle, xx+1200, height/2-300,400,200 );
+ image(knuckle, xx+550, height/2-50,400,200 );
+  xx = xx + speed;
 
   for(var i=0; i<allSprites.length; i++) {
   var s = allSprites[i];
@@ -97,10 +180,14 @@ image(viral4,width/2,height/2,400, 400);
  	{
  		if(a.overlap(b)) b.changeAnimation(virus.getAnimationLabel());
  	}
-	
+
+
+
+ // console.log(s.getAnimationLabel());
+  }
 }
 //console.log(a.getAnimationLabel());
-}
+
 
 
 for (i=0;i<allSprites.length;i++){
@@ -120,22 +207,7 @@ for (i=0;i<allSprites.length;i++){
 //console.log(virusCounter);
 virusCounter = 0;
 //console.log(goneViral);
-if(goneViral==true){
-	fill('red');
-	textSize(80);
-	text("It can't be stopped", random(200, 800),random(200, 800));
-	fill('red');
-	textSize(90);
-	text("DO you no Da Wae?", random(200, 800),random(200, 800));
-//	goneViral == false;
-/*
-for (i=0;i<allSprites.length;i++){
-	 allSprites[i].remove();
-}
-*/
-//	allVirus();
 
-}
 drawSprites();
 
 //console.log(goneViral);
@@ -144,8 +216,9 @@ drawSprites();
 function createPixels(type, x, y) {
  
 let numberChoices = ['laugh','mystery','ninja'];
-let r = random(numberChoices);
-console.log(r);
+let ohno = ['laugh','mystery','ninja','virus'];
+
+//console.log(r);
 var a = createSprite(x, y);
 
  
@@ -158,6 +231,11 @@ a.addAnimation('virus','virus_0.png','virus_1.png','virus_1.png');
 
 a.changeAnimation(random(numberChoices));
 
+  a.onMousePressed = function() {
+  this.changeAnimation(random(ohno));
+  this.animation.goToFrame(this.animation.getLastFrame());
+  }
+  
 
 a.setSpeed(2.5-(type/2), random(360));
 a.rotationSpeed = .5;
