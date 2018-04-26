@@ -11,22 +11,21 @@ var sprites;
 let goneViral;
 let virusCounter;
 
-function preload() {
-  viral2 = loadImage('viral2.png')
-  viral3 = loadImage('viral3.png')
 
-
-
-}
 function setup(){
 
 	startSketch();
+
 }
 
 
 function startSketch() {
-	goneViral = true;
+	goneViral = false;
 	virusCounter = 0;
+
+
+
+
 	createCanvas(windowWidth, windowHeight);
 	virus = createSprite(width/2,0,100,100);
 	virus.addAnimation("virus","virus_0.png","virus_1.png","virus_1.png");
@@ -47,7 +46,8 @@ for(var i = 0; i<120; i++) {
 
   }
 
-  
+  viral2 = loadImage('viral2.png')
+  viral3 = loadImage('viral3.png')
 
   viral1 = createVideo(['viral1.mov','viral1.mp4']);
   viral1.hide(); 
@@ -122,35 +122,53 @@ virusCounter = 0;
 if(goneViral==true){
 	fill('red');
 	text("It can't be stopped", width/2,height/2);
+	goneViral == false;
+/*
+for (i=0;i<allSprites.length;i++){
+	 allSprites[i].remove();
+}
+*/
+//	allVirus();
+
 }
 drawSprites();
 
-
+//console.log(goneViral);
 }
 
 function createPixels(type, x, y) {
  
-let numberChoices = [0,1,2];
+let numberChoices = ['laugh','mystery','ninja'];
 let r = random(numberChoices);
 console.log(r);
-  var a = createSprite(x, y);
+var a = createSprite(x, y);
 
  
-  if(r = 0){
-  a.addAnimation("laugh","laugh1.png","laugh0.png","laugh0.png");
 
-  }
-  if(r = 1){
-  a.addAnimation("mystery","mystery1.png","mystery0.png","mystery0.png");
-
-  }
-  if(r = 2){
-  a.addAnimation("ninja","ninja0.png","ninja1.png","ninja2.png","ninja2.png");
-  }
+  a.addAnimation('laugh','laugh1.png','laugh0.png','laugh0.png'); 
+  a.addAnimation('mystery','mystery1.png','mystery0.png','mystery0.png');
+  a.addAnimation('ninja','ninja0.png','ninja1.png','ninja2.png','ninja2.png');
+  a.addAnimation('virus','virus_0.png','virus_1.png','virus_1.png');
  
 
-  a.addAnimation("virus","virus_0.png","virus_1.png","virus_1.png");
- 
+  a.changeAnimation(random(numberChoices));
+
+
+
+ /*
+  if(r = 'a'){
+  a.changeAnimation('laugh');
+
+  }
+  else if(r = 'b'){
+  a.changeAnimation('mystery');
+
+  }
+  else if(r = 'c'){
+  a.changeAnimation('ninja');
+  }
+*/
+
   a.setSpeed(2.5-(type/2), random(360));
   a.rotationSpeed = .5;
   //a.debug = true;
@@ -171,7 +189,7 @@ console.log(r);
 
 function allVirus(){
 	//display text
-
+goneViral =false;
 setTimeout(startSketch,5000);
 
 }
