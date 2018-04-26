@@ -123,12 +123,12 @@ if(goneViral==true){
 	fill('red');
 	text("It can't be stopped", width/2,height/2);
 	goneViral == false;
-/*
+
 for (i=0;i<allSprites.length;i++){
 	 allSprites[i].remove();
 }
-*/
-//	allVirus();
+
+	allVirus();
 
 }
 drawSprites();
