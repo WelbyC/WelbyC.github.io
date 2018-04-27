@@ -16,6 +16,7 @@ let xx = 3000;
 let speed=0;
 let knuckle;
 let fast = false;
+let toofast = false;
 function preload(){
 
 song = loadSound('Running90s.mp3');
@@ -37,7 +38,9 @@ doctor = loadImage('doctor.jpg');
 }
 function setup(){
 
-	startSketch();
+	createCanvas(2850, 1461);
+	
+	setTimeout(startSketch,5000);
 	song.play();
   
 }
@@ -48,13 +51,11 @@ function startSketch() {
 	virusCounter = 0;
 
 
-
-
-	createCanvas(windowWidth, windowHeight);
 	virus = createSprite(width/2,0,150,100);
 	virus.addAnimation("virus","virus_0.png","virus_1.png","virus_1.png");
 	virus.setCollider("circle",0,0,50);
 	x = 90;
+	virus.setSpeed(2, x);
  
 
  sprites = new Group();
@@ -87,7 +88,7 @@ viral4.loop();
 function draw(){
 background(0);
 x=x+random(-1,1);
-virus.setSpeed(2, x);
+
 
 image(mark,width/2-800,height/2-400, 400, 400); 
 
@@ -108,7 +109,7 @@ image(viral3,width/2-400,height/2,400,400);
 
 image(viral4,width/2,height/2,400, 400);
 
-
+}
 
 
 
@@ -123,8 +124,26 @@ image(uhoh,width/2-1250,height/2,500, 600);
 image(doctor,width/2+800,height/2,500, 700);
 }
 
-}
-//console.log(speed);
+
+console.log(width,height);
+
+ if (xx <= -560) {
+    knuckle = knuckles2;
+    speed = speed+3;
+  } else if (xx >= width+100) {
+    knuckle = knuckles;
+    speed = -speed-3;
+  }
+
+ image(knuckle, xx, height/2,400,200 );
+ image(knuckle, xx+500, height/2+400,400,200 );
+ image(knuckle, xx+600, height/2-400,400,200 );
+ image(knuckle, xx+900, height/2+300,400,200 );
+ image(knuckle, xx+900, height/2-700,400,200 );
+ image(knuckle, xx+1200, height/2-300,400,200 );
+ image(knuckle, xx+550, height/2-50,400,200 );
+  xx = xx + speed;
+
 if(goneViral==true){
 	fill('red');
 	textSize(50);
@@ -144,23 +163,16 @@ if(goneViral==true){
 }
 
 
- if (xx <= -600) {
-    knuckle = knuckles2;
-    speed = speed+3;
-  } else if (xx >= width+100) {
-    knuckle = knuckles;
-    speed = -speed-3;
-  }
 
- image(knuckle, xx, height/2,400,200 );
- image(knuckle, xx+500, height/2+400,400,200 );
- image(knuckle, xx+600, height/2-400,400,200 );
- image(knuckle, xx+900, height/2+300,400,200 );
- image(knuckle, xx+900, height/2-700,400,200 );
- image(knuckle, xx+1200, height/2-300,400,200 );
- image(knuckle, xx+550, height/2-50,400,200 );
-  xx = xx + speed;
 
+/*
+if (speed >12||speed<-12)
+{
+toofast == true;
+}
+//if(toofast == true){
+*/
+//}
   for(var i=0; i<allSprites.length; i++) {
   var s = allSprites[i];
   if(s.position.x<-MARGIN) s.position.x = width+MARGIN;
