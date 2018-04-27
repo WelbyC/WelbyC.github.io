@@ -48,13 +48,15 @@ function startSketch() {
 	virusCounter = 0;
 
 
+	createCanvas(2400,1200);
 
 
-	createCanvas(windowWidth, windowHeight);
 	virus = createSprite(width/2,0,150,100);
 	virus.addAnimation("virus","virus_0.png","virus_1.png","virus_1.png");
 	virus.setCollider("circle",0,0,50);
 	x = 90;
+	console.log(width);
+	console.log(height);
  
 
  sprites = new Group();
@@ -125,6 +127,26 @@ image(doctor,width/2+800,height/2,500, 700);
 
 }
 //console.log(speed);
+
+
+ if (xx <= -400) {
+    knuckle = knuckles2;
+    speed = speed+3.9;
+    knuckles2.rotationSpeed = .5;
+  } else if (xx >= 2000+100) {
+    knuckle = knuckles;
+    speed = -speed-3.9;
+  }
+
+ image(knuckle, xx, height/2,400,200 );
+ image(knuckle, xx+500, height/2+400,400,200 );
+ image(knuckle, xx+600, height/2-400,400,200 );
+ image(knuckle, xx+900, height/2+300,400,200 );
+ image(knuckle, xx+900, height/2-700,400,200 );
+ image(knuckle, xx+1200, height/2-300,400,200 );
+ image(knuckle, xx+550, height/2-50,400,200 );
+  xx = xx + speed;
+
 if(goneViral==true){
 	fill('red');
 	textSize(50);
@@ -144,22 +166,6 @@ if(goneViral==true){
 }
 
 
- if (xx <= -600) {
-    knuckle = knuckles2;
-    speed = speed+3;
-  } else if (xx >= width+100) {
-    knuckle = knuckles;
-    speed = -speed-3;
-  }
-
- image(knuckle, xx, height/2,400,200 );
- image(knuckle, xx+500, height/2+400,400,200 );
- image(knuckle, xx+600, height/2-400,400,200 );
- image(knuckle, xx+900, height/2+300,400,200 );
- image(knuckle, xx+900, height/2-700,400,200 );
- image(knuckle, xx+1200, height/2-300,400,200 );
- image(knuckle, xx+550, height/2-50,400,200 );
-  xx = xx + speed;
 
   for(var i=0; i<allSprites.length; i++) {
   var s = allSprites[i];
@@ -197,6 +203,7 @@ for (i=0;i<allSprites.length;i++){
     }
     if(virusCounter >= allSprites.length){
     	goneViral = true;
+
 	}
     else
     {
@@ -233,7 +240,7 @@ a.changeAnimation(random(numberChoices));
 
   a.onMousePressed = function() {
   this.changeAnimation(random(ohno));
-  this.animation.goToFrame(this.animation.getLastFrame());
+
   }
   
 
