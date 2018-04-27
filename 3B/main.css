@@ -6,6 +6,11 @@ body {
   text-align: center;
   background-color: black;
 }
+.myFunction{
+    height:100px;
+    width:100px;
+
+}
 
 canvas {
   margin: auto;
@@ -17,4 +22,5 @@ createCanvas(windowWidth, windowHeight);
    /*top: 0;
   left: 0;
   position: absolute; */
+
 }

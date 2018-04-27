@@ -40,7 +40,7 @@ function setup(){
 
 	createCanvas(2850, 1461);
 	
-	setTimeout(startSketch,5000);
+	setTimeout(startSketch,5500);
 	song.play();
   
 }
@@ -55,7 +55,7 @@ function startSketch() {
 	virus.addAnimation("virus","virus_0.png","virus_1.png","virus_1.png");
 	virus.setCollider("circle",0,0,50);
 	x = 90;
-	virus.setSpeed(2, x);
+	virus.setSpeed(1.5, x);
  
 
  sprites = new Group();
@@ -127,7 +127,7 @@ image(doctor,width/2+800,height/2,500, 700);
 
 console.log(width,height);
 
- if (xx <= -560) {
+ if (xx <= -590) {
     knuckle = knuckles2;
     speed = speed+3;
   } else if (xx >= width+100) {
@@ -249,7 +249,7 @@ a.changeAnimation(random(numberChoices));
   }
   
 
-a.setSpeed(2.5-(type/2), random(360));
+a.setSpeed(3-(type/2), random(360));
 a.rotationSpeed = .5;
   //a.debug = true;
 a.type = type;
