@@ -41,7 +41,7 @@ function setup(){
 	
 	setTimeout(startSketch,5500);
 	song.play();
-  setInterval(allVirus,240000);
+  setInterval(allVirus,200000);
   
   
 }
