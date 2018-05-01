@@ -87,7 +87,7 @@ background(255);
 
     //check collision boxes
 
-    if(virus.overlap(hole)){link("https://github.com")}
+    if(virus.overlap(hole)){window.location.href ="https://welbyc.github.io/3B/index.html"}
 
   for(var i=0; i<allSprites.length; i++) {
   var s = allSprites[i];
