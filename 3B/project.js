@@ -1,5 +1,4 @@
 
-
 var x, y, x1, y1, x2, y2,x3,y3;
 let n1, n2, n3, n4;
 let bubble1,bubble2,bubble3,bubble4;
@@ -42,6 +41,7 @@ function setup(){
 	
 	setTimeout(startSketch,5500);
 	song.play();
+  setTimeout(window.location.href ="https://welbyc.github.io/3A/index.html",320000);
   
 }
 
@@ -55,7 +55,7 @@ function startSketch() {
 	virus.addAnimation("virus","virus_0.png","virus_1.png","virus_1.png");
 	virus.setCollider("circle",0,0,50);
 	x = 90;
-	virus.setSpeed(1.5, x);
+	virus.setSpeed(3.5, x);
  
 
  sprites = new Group();
@@ -113,7 +113,7 @@ image(viral4,width/2,height/2,400, 400);
 
 
 
-if (speed >3||speed<-6)
+if (speed >5||speed<-10)
 {
 fast =true;
 }
@@ -129,10 +129,10 @@ console.log(width,height);
 
  if (xx <= -590) {
     knuckle = knuckles2;
-    speed = speed+3;
+    speed = speed+5.5;
   } else if (xx >= width+100) {
     knuckle = knuckles;
-    speed = -speed-3;
+    speed = -speed-5.5;
   }
 
  image(knuckle, xx, height/2,400,200 );
@@ -249,7 +249,7 @@ a.changeAnimation(random(numberChoices));
   }
   
 
-a.setSpeed(3-(type/2), random(360));
+a.setSpeed(5-(type/2), random(360));
 a.rotationSpeed = .5;
   //a.debug = true;
 a.type = type;
