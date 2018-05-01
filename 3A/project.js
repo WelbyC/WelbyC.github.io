@@ -52,8 +52,10 @@ function setup(){
 
 function draw(){
 background(255);
-
-
+	textSize(50);
+	text("W,A,S,D to move", width/2,100);
+	textSize(25);
+	text("Endless pit of dank memes", width/2+60,height - 350);
     //eye player controls
     //left, right
     if (keyDown("a")) {
