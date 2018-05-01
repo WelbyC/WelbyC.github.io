@@ -41,7 +41,7 @@ function setup(){
 	
 	setTimeout(startSketch,5500);
 	song.play();
-  setInterval(allVirus,200000);
+  setInterval(allVirus,160000);
   
   
 }
@@ -114,7 +114,7 @@ image(viral4,width/2,height/2,400, 400);
 
 
 
-if (speed >5||speed<-10)
+if (speed >5.5||speed<-11)
 {
 fast =true;
 }
