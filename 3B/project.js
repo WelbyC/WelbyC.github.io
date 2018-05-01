@@ -41,7 +41,8 @@ function setup(){
 	
 	setTimeout(startSketch,5500);
 	song.play();
-  setTimeout(window.location.href ="https://welbyc.github.io/3A/index.html",320000);
+  setInterval(allVirus,240000);
+  
   
 }
 
@@ -269,7 +270,6 @@ return a;
 
 function allVirus(){
 	//display text
-goneViral =false;
-setTimeout(startSketch,5000);
+window.location.assign("https://welbyc.github.io/3A/index.html");
 
 }
