@@ -56,7 +56,7 @@ function startSketch() {
 	virus.addAnimation("virus","virus_0.png","virus_1.png","virus_1.png");
 	virus.setCollider("circle",0,0,50);
 	x = 90;
-	virus.setSpeed(1.5, x);
+	virus.setSpeed(1.6, x);
  
 
  sprites = new Group();
@@ -250,7 +250,7 @@ a.changeAnimation(random(numberChoices));
   }
   
 
-a.setSpeed(3-(type/2), random(360));
+a.setSpeed(3.1-(type/2), random(360));
 a.rotationSpeed = .5;
   //a.debug = true;
 a.type = type;
