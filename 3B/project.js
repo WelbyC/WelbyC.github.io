@@ -114,7 +114,7 @@ image(viral4,width/2,height/2,400, 400);
 
 
 
-if (speed >3.5||speed<-6.5)
+if (speed >3.1||speed<-6.2)
 {
 fast =true;
 }
@@ -130,10 +130,10 @@ console.log(width,height);
 
  if (xx <= -590) {
     knuckle = knuckles2;
-    speed = speed+3.5;
+    speed = speed+3.1;
   } else if (xx >= width+100) {
     knuckle = knuckles;
-    speed = -speed-3.5;
+    speed = -speed-3.1;
   }
 
  image(knuckle, xx, height/2,400,200 );
