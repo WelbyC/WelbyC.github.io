@@ -56,7 +56,7 @@ function startSketch() {
 	virus.addAnimation("virus","virus_0.png","virus_1.png","virus_1.png");
 	virus.setCollider("circle",0,0,50);
 	x = 90;
-	virus.setSpeed(3.5, x);
+	virus.setSpeed(1.5, x);
  
 
  sprites = new Group();
@@ -114,7 +114,7 @@ image(viral4,width/2,height/2,400, 400);
 
 
 
-if (speed >5.5||speed<-11)
+if (speed >3.5||speed<-6.5)
 {
 fast =true;
 }
@@ -130,10 +130,10 @@ console.log(width,height);
 
  if (xx <= -590) {
     knuckle = knuckles2;
-    speed = speed+5.5;
+    speed = speed+3.5;
   } else if (xx >= width+100) {
     knuckle = knuckles;
-    speed = -speed-5.5;
+    speed = -speed-3.5;
   }
 
  image(knuckle, xx, height/2,400,200 );
@@ -250,7 +250,7 @@ a.changeAnimation(random(numberChoices));
   }
   
 
-a.setSpeed(5-(type/2), random(360));
+a.setSpeed(3-(type/2), random(360));
 a.rotationSpeed = .5;
   //a.debug = true;
 a.type = type;
