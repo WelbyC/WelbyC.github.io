@@ -5,7 +5,7 @@ body {
   line-height: 1.5;
   padding: 30px 20px;
   text-align: center;
-  background: linear-gradient(aqua,white);
+  background: linear-gradient(#ccffff,white);
   color: #330033;
 }
 
@@ -16,8 +16,9 @@ h1 {
 /* This changes color and removes default underline in links  */
 
 a {
-color:#ff0066;
+color:blue;
 text-decoration: none;
+
 }
 
 
@@ -36,6 +37,7 @@ portfolio entries */
 .portfolio-item {
   margin-top: 60px;
   padding: 30px;
+
   background: linear-gradient(white,purple);
   color:#00004d;
 }
@@ -44,3 +46,7 @@ color: #69CBBB;
 font-size: 90; 
 text-decoration: none
 }
+.portfolio-item img{
+  max-width: 53%;
+}
+
