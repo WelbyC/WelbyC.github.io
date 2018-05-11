@@ -25,9 +25,7 @@ text-decoration: none;
 /* Centers images */
 
 img {
-  display: block;
-  margin: 0px auto;
-  width: 100%;
+
 }
 
 /* When you put a period in front of a CSS declaration, it indicates you are
@@ -47,6 +45,9 @@ font-size: 90;
 text-decoration: none
 }
 .portfolio-item img{
-  max-width: 53%;
+  max-width: 100%;
+    display: block;
+  margin: 0px auto;
+
 }
 
