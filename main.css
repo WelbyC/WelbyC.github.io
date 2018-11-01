@@ -1,53 +1,37 @@
-body {
-  margin: 30px auto;
-  max-width: 60%;
-  font-family: "Helvetica", "Arial", sans-serif;
-  line-height: 1.5;
-  padding: 30px 20px;
-  text-align: center;
-  background: linear-gradient(#ccffff,white);
-  color: #330033;
+.navigationBar {
+    background-image: linear-gradient(to top right,#4dffff, magenta);
 }
 
-h1 {
-  padding: 20px 0px 10px 0px;
+.navigationBar {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  overflow: hidden;
 }
 
-/* This changes color and removes default underline in links  */
-
-a {
-color:blue;
-text-decoration: none;
-
-}
-
-
-/* Centers images */
-
-img {
+.navigationBar a{
+	float: left;
+	line-height: 50px;
+  padding: 0 20px;
+  text-decoration: none;
+	color: #ddd;
 
 }
 
-/* When you put a period in front of a CSS declaration, it indicates you are
-creating a new class. We can apply this to div elements to create different
-portfolio entries */
 
-.portfolio-item {
-  margin-top: 60px;
-  padding: 30px;
-
-  background: linear-gradient(white,purple);
-  color:#00004d;
+   
+.github:hover{
+	background-color: magenta;
+	color: black;
 }
-.portfolio-item a {
-color: #69CBBB;
-font-size: 90; 
-text-decoration: none
+.portfolio:hover{
+	background-color:#4dffff ;
+	color: black;
 }
-.portfolio-item img{
-  max-width: 100%;
-    display: block;
-  margin: 0px auto;
-
+.home:hover{
+	background-color: white;
+	color: black;
 }
 
+  
