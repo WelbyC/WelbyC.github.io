@@ -22,16 +22,17 @@
 
    
 .github:hover{
-	background-color: magenta;
-	color: black;
+	/*background-color: magenta;*/
+	background-image: linear-gradient(to top,white, #cc00cc);
+	color: white;
 }
 .portfolio:hover{
-	background-color:#4dffff ;
-	color: black;
+	background-image: linear-gradient(to top right,#4dffff, magenta);
+	color: white;
 }
 .home:hover{
-	background-color: white;
-	color: black;
+	background-image: linear-gradient(to bottom,#00e6e6, white);
+	color: white;
 }
 
   
