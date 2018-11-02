@@ -10,28 +10,29 @@
   overflow: hidden;
 }
 
+
 .navigationBar a{
 	float: left;
 	line-height: 50px;
   padding: 0 20px;
   text-decoration: none;
-	color: #ddd;
+	color: black;
 
 }
 
 
    
 .github:hover{
-	background-color: magenta;
-	color: black;
+	background-image: linear-gradient(to top right,#4dffff, magenta);
+	color: white;
 }
 .portfolio:hover{
-	background-color:#4dffff ;
-	color: black;
+	background-image: linear-gradient(to top right,#4dffff, magenta);
+	color: white;
 }
 .home:hover{
-	background-color: white;
-	color: black;
+	background-image: linear-gradient(to top right,#4dffff, magenta);
+	color: white;
 }
 
   
