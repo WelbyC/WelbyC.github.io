@@ -10,12 +10,13 @@
   overflow: hidden;
 }
 
+
 .navigationBar a{
 	float: left;
 	line-height: 50px;
   padding: 0 20px;
   text-decoration: none;
-	color: #ddd;
+	color: black;
 
 }
 
