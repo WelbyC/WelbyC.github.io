@@ -270,6 +270,6 @@ return a;
 
 function allVirus(){
 	//display text
-window.location.assign("https://welbyc.github.io/3A/index.html");
+window.location.assign("https://welbyc.github.io/portfolio/3A/index.html");
 
 }

@@ -1,0 +1,38 @@
+.navigationBar {
+    background-image: linear-gradient(to top right,#4dffff, magenta);
+}
+
+.navigationBar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  overflow: hidden;
+}
+
+
+.navigationBar a{
+	float: left;
+	line-height: 50px;
+  padding: 0 20px;
+  text-decoration: none;
+	color: black;
+
+}
+
+
+   
+.github:hover{
+	background-image: linear-gradient(to top right,#4dffff, magenta);
+	color: white;
+}
+.portfolio:hover{
+	background-image: linear-gradient(to top right,#4dffff, magenta);
+	color: white;
+}
+.home:hover{
+	background-image: linear-gradient(to top right,#4dffff, magenta);
+	color: white;
+}
+
+  

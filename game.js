@@ -1,118 +1,130 @@
-//asteroid clone (core mechanics only)
-//arrow keys to move + x to shoot
+var MARGIN = 50;
+let virus;
+let ground;
+let platform3;
+let gravity = 1;
+let jump = 15;
 
-var bullets;
-var asteroids;
-var ship;
-var shipImage, bulletImage, particleImage;
-var MARGIN = 40;
 
-function setup() {
-  createCanvas(800, 600);
 
-  bulletImage = loadImage('assets/asteroids_bullet.png');
-  shipImage = loadImage('assets/asteroids_ship0001.png');
-  particleImage = loadImage('assets/asteroids_particle.png');
+function setup(){
 
-  ship = createSprite(width/2, height/2);
-  ship.maxSpeed = 6;
-  ship.friction = 0.98;
-  ship.setCollider('circle', 0, 0, 20);
+	createCanvas(windowWidth-40, windowHeight-100);
+	
+	let numberChoices = ['laugh','mystery','ninja'];
+	let ohno = ['laugh','mystery','ninja','virus'];
 
-  ship.addImage('normal', shipImage);
-  ship.addAnimation('thrust', 'assets/asteroids_ship0002.png', 'assets/asteroids_ship0007.png');
 
-  asteroids = new Group();
-  bullets = new Group();
+	ground = createSprite(width / 2, height - 50, width +100, 2);
+    platform3 = createSprite(width / 2 +width/2.6, height - height/4.5, width/11, 10);
+    platform2 = createSprite(width / 2, height - height/4.5, width/11, 10);
+    platform1 = createSprite(width / 2 -width/2.6, height - height/4.5, width/11, 10);
+    ground.shapeColor = color(0);
 
-  for(var i = 0; i<8; i++) {
-    var ang = random(360);
-    var px = width/2 + 1000 * cos(radians(ang));
-    var py = height/2+ 1000 * sin(radians(ang));
-    createAsteroid(3, px, py);
-  }
+    door = createSprite(width/2,height - height/2.9,200,150);
+    door.addAnimation('closedDoor','sprite0.png');
+    door.addAnimation('openDoor','sprite1.png');
+	door.setCollider("circle",0,0,50,50);
+
+
+	virus = createSprite(width / 2 -width/2.6,0,150,100);
+	virus.addAnimation("virus","portfolio/3A/virus_0.png","portfolio/3A/virus_1.png","portfolio/3A/virus_1.png");	
+	virus.addAnimation('laugh','portfolio/3A/laugh1.png','portfolio/3A/laugh0.png','portfolio/3A/laugh0.png'); 
+	virus.addAnimation('mystery','portfolio/3A/mystery1.png','portfolio/3A/mystery0.png','portfolio/3A/mystery0.png');
+	virus.addAnimation('ninja','portfolio/3A/ninja0.png','portfolio/3A/ninja1.png','portfolio/3A/ninja2.png','portfolio/3A/ninja2.png');
+	virus.addAnimation('ninjab','portfolio/3A/ninjab0.png','portfolio/3A/ninjab1.png','portfolio/3A/ninjab2.png','portfolio/3A/ninjab2.png');
+	virus.addAnimation('virus','portfolio/3A/virus_0.png','portfolio/3A/virus_1.png','portfolio/3A/virus_1.png');
+ 
+	virus.velocity.x = 0;
+	virus.changeAnimation(random(numberChoices));
+
+  	virus.onMousePressed = function() {
+  	this.changeAnimation(random(ohno));
+
+	}
+
+	virus.setCollider("circle",0,0,50);
+
+
+	hole = createSprite(width - width/8.6,height - height/3,200,150);
+	hole.addAnimation('hole','portfolio/3A/hole0.png','portfolio/3A/hole1.png','portfolio/3A/hole2.png','portfolio/3A/hole3.png');
+    hole.setCollider("circle",0,0,0,25);
+    
+
+
+
+
+  
 }
 
-function draw() {
-  background(0);
 
-  fill(255);
-  textAlign(CENTER);
-  text('Controls: Arrow Keys + X', width/2, 20);
+
+
+function draw(){
+background(255);
+	textSize(45);
+	text("W,A,S,D to move", width/2,height-height/1.1);
+    textSize(20);
+	text("Infinite Jumps", width/2,height-height/1.15);
+    textSize(20);
+    text("GitHub", width/2.07,height - height/2);
+    textSize(20);
+    text("Art Porfolio", width - width/7,height-height/2);
+	textSize(20);
+
+    //eye player controls
+    //left, right
+    if (keyDown("a")) {
+    	if (virus.getAnimationLabel() == "ninja"){
+        virus.changeAnimation("ninjab");
+	}
+        virus.velocity.x = -2;
+    } else if (keyDown("d")) {
+    	if (virus.getAnimationLabel() == "ninjab"){
+        virus.changeAnimation("ninja");
+	}
+        virus.velocity.x = 2;
+    } else {
+        virus.velocity.x = 0;
+      //a  virus.changeAnimation("virus");
+    }
+
+    //jump
+    virus.velocity.y += gravity;
+
+    if (virus.collide(ground)||virus.collide(platform3)||virus.collide(platform2)||virus.collide(platform1)) {
+        virus.velocity.y = 0;
+        //virus.changeAnimation("virus");
+    }
+
+
+    if (keyWentDown("w")) {
+      //  virus.changeAnimation("jumping");
+        virus.animation.rewind(); //not sure why this is in example - sprite animation backwards?
+        virus.velocity.y = -jump;
+    }
+
+    //check collision boxes
+
+    if(virus.overlap(hole)){window.location.href ="https://welbyc.github.io/portfolio/index.html"}
+    if(virus.overlap(door)){
+    door.changeAnimation('openDoor');
+    setTimeout(window.location.href ="https://github.com/WelbyC",1500);
+    }
+    else
+  door.changeAnimation('closedDoor');
+
 
   for(var i=0; i<allSprites.length; i++) {
-    var s = allSprites[i];
-    if(s.position.x<-MARGIN) s.position.x = width+MARGIN;
-    if(s.position.x>width+MARGIN) s.position.x = -MARGIN;
-    if(s.position.y<-MARGIN) s.position.y = height+MARGIN;
-    if(s.position.y>height+MARGIN) s.position.y = -MARGIN;
-  }
-
-  asteroids.overlap(bullets, asteroidHit);
-
-  ship.bounce(asteroids);
-
-  if(keyDown(LEFT_ARROW))
-    ship.rotation -= 4;
-  if(keyDown(RIGHT_ARROW))
-    ship.rotation += 4;
-  if(keyDown(UP_ARROW))
-  {
-    ship.addSpeed(0.2, ship.rotation);
-    ship.changeAnimation('thrust');
-  }
-  else
-    ship.changeAnimation('normal');
-
-  if(keyWentDown('x'))
-  {
-    var bullet = createSprite(ship.position.x, ship.position.y);
-    bullet.addImage(bulletImage);
-    bullet.setSpeed(10+ship.getSpeed(), ship.rotation);
-    bullet.life = 30;
-    bullets.add(bullet);
-  }
-
-  drawSprites();
-
+  var s = allSprites[i];
+  if(s.position.x<-MARGIN) s.position.x = width+MARGIN;
+  if(s.position.x>width+MARGIN) s.position.x = -MARGIN;
+  if(s.position.y<-MARGIN) s.position.y = height+MARGIN;
+  if(s.position.y>height+MARGIN) s.position.y = -MARGIN;
 }
 
-function createAsteroid(type, x, y) {
-  var a = createSprite(x, y);
-  var img = loadImage('assets/asteroid'+floor(random(0, 3))+'.png');
-  a.addImage(img);
-  a.setSpeed(2.5-(type/2), random(360));
-  a.rotationSpeed = 0.5;
-  //a.debug = true;
-  a.type = type;
 
-  if(type == 2)
-    a.scale = 0.6;
-  if(type == 1)
-    a.scale = 0.3;
+drawSprites();
 
-  a.mass = 2+a.scale;
-  a.setCollider('circle', 0, 0, 50);
-  asteroids.add(a);
-  return a;
-}
 
-function asteroidHit(asteroid, bullet) {
-  var newType = asteroid.type-1;
-
-  if(newType>0) {
-    createAsteroid(newType, asteroid.position.x, asteroid.position.y);
-    createAsteroid(newType, asteroid.position.x, asteroid.position.y);
-  }
-
-  for(var i=0; i<10; i++) {
-    var p = createSprite(bullet.position.x, bullet.position.y);
-    p.addImage(particleImage);
-    p.setSpeed(random(3, 5), random(360));
-    p.friction = 0.95;
-    p.life = 15;
-  }
-
-  bullet.remove();
-  asteroid.remove();
 }
