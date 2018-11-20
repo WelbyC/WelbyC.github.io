@@ -4,6 +4,7 @@ let ground;
 let platform3;
 let gravity = 1;
 let jump = 15;
+var entered = 0;
 
 
 
@@ -14,6 +15,8 @@ function setup(){
 	let numberChoices = ['laugh','mystery','ninja'];
 	let ohno = ['laugh','mystery','ninja','virus'];
 
+
+  
 
 	ground = createSprite(width / 2, height - 50, width +100, 2);
     platform3 = createSprite(width / 2 +width/2.6, height - height/4.5, width/11, 10);
@@ -109,7 +112,11 @@ background(255);
     if(virus.overlap(hole)){window.location.href ="https://welbyc.github.io/portfolio/index.html"}
     if(virus.overlap(door)){
     door.changeAnimation('openDoor');
-    setTimeout(window.location.href ="https://github.com/WelbyC",1500);
+    if(entered == 0)
+    {
+        setTimeout(window.location.href ="https://github.com/WelbyC",1500);
+        entered = 1;
+    }
     }
     else
   door.changeAnimation('closedDoor');
