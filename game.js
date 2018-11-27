@@ -24,10 +24,11 @@ function setup(){
     platform1 = createSprite(width / 2 -width/2.6, height - height/4.5, width/11, 10);
     ground.shapeColor = color(0);
 
-    door = createSprite(width/2,height - height/2.9,200,150);
+    door = createSprite(width/2,height - height/2.8 ,250,150);
     door.addAnimation('closedDoor','sprite0.png');
     door.addAnimation('openDoor','sprite1.png');
-	door.setCollider("circle",0,0,50,50);
+    door.setCollider("circle",0,0,50,50);
+    door.scale = 0.8;
 
 
 	virus = createSprite(width / 2 -width/2.6,0,150,100);
