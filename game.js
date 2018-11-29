@@ -19,9 +19,9 @@ function setup(){
   
 
 	ground = createSprite(width / 2, height - 50, width +100, 2);
-    platform3 = createSprite(width / 2 +width/2.6, height - height/4.5, width/11, 10);
-    platform2 = createSprite(width / 2, height - height/4.5, width/11, 10);
-    platform1 = createSprite(width / 2 -width/2.6, height - height/4.5, width/11, 10);
+    platform3 = createSprite(width / 2 +width/2.6, height - height/4.2, width/11, 10);
+    platform2 = createSprite(width / 2, height - height/4.2, width/11, 10);
+    platform1 = createSprite(width / 2 -width/2.6, height - height/4.2, width/11, 10);
     ground.shapeColor = color(0);
 
     door = createSprite(width/2,height - height/2.8 ,250,150);
