@@ -19,9 +19,9 @@ function setup(){
   
 
 	ground = createSprite(width / 2, height - 50, width +100, 2);
-    platform3 = createSprite(width / 2 +width/2.6, height - height/4.5, width/11, 10);
-    platform2 = createSprite(width / 2, height - height/4.5, width/11, 10);
-    platform1 = createSprite(width / 2 -width/2.6, height - height/4.5, width/11, 10);
+    platform3 = createSprite(width / 2 +width/2.6, height - height/4.2, width/11, 10);
+    platform2 = createSprite(width / 2, height - height/4.2, width/11, 10);
+    platform1 = createSprite(width / 2 -width/2.6, height - height/4.2, width/11, 10);
     ground.shapeColor = color(0);
 
     door = createSprite(width/2,height - height/2.9,200,150);
@@ -109,7 +109,12 @@ background(255);
 
     //check collision boxes
 
-    if(virus.overlap(hole)){window.location.href ="https://welbyc.github.io/portfolio/index.html"}
+    if(virus.overlap(hole))
+    if(entered == 0)
+    {
+        {window.location.href ="https://welbyc.github.io/portfolio/index.html"}
+        entered = 1;
+    }
     if(virus.overlap(door)){
     door.changeAnimation('openDoor');
     if(entered == 0)
