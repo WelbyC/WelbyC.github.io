@@ -27,7 +27,8 @@ function setup(){
     door = createSprite(width/2,height - height/2.9,200,150);
     door.addAnimation('closedDoor','sprite0.png');
     door.addAnimation('openDoor','sprite1.png');
-	door.setCollider("circle",0,0,50,50);
+    door.setCollider("circle",0,0,50,50);
+    door.scale = 0.8;
 
 
 	virus = createSprite(width / 2 -width/2.6,0,150,100);
