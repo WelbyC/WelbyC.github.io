@@ -69,7 +69,6 @@ text-decoration: none
 .navigationBar {
 
   background-image: linear-gradient(to top right,#4dffff, magenta);
-
 }
 
 .navigationBar ul {
@@ -78,7 +77,6 @@ padding: 0;
 margin: 0;
 background: transparent;
 overflow: hidden;
-
 }
 
 
@@ -107,41 +105,46 @@ color: white;
 }
 
 
-.dropdown{
-	position: relative;
-	
-
-}
-
-.dropdown-links{
-	opacity:0;
-	visibility: hidden;
-	position: absolute;
-  background-image: linear-gradient(to top right,#4dffff, magenta);
-	
-}
-
-.dropdown-links a{
-float: block;
-
-
-}
-
-.dropdown-links a:hover{
-  background-image: linear-gradient(to top right,#4dffff, magenta);
-	text-decoration: none;
-	color: white;
-	
-}
-.dropdown:hover .dropdown-links {
-	opacity:1;
-	visibility: visible;
-	text-decoration: none;
-
-}
-
 
 
 /* -------------------------------------------------------------*/
 
+
+.navigationBar2 {
+
+  background-image: linear-gradient(to top right,#4dffff, magenta);
+}
+
+.navigationBar2 ul {
+list-style: none;
+padding: 0;
+margin: 0;
+background: transparent;
+overflow: hidden;
+}
+
+
+.navigationBar2 a{
+float: left;
+line-height: 50px;
+padding: 0 20px;
+text-decoration: none;
+color: black;
+
+}
+
+
+ 
+.github:hover{
+background-image: linear-gradient(to top right,#4dffff, magenta);
+color: white;
+}
+.portfolio:hover{
+background-image: linear-gradient(to top right,#4dffff, magenta);
+color: white;
+}
+.home:hover{
+background-image: linear-gradient(to top right,#4dffff, magenta);
+color: white;
+}
 

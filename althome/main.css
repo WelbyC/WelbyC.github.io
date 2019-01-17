@@ -26,14 +26,17 @@
 	/*background-color: magenta;*/
 	background-image: linear-gradient(to top,white, #cc00cc);
 	color: white;
+	text-decoration: none;
 }
 .portfolio:hover{
 	background-image: linear-gradient(to top right,#4dffff, magenta);
 	color: white;
+	text-decoration: none;
 }
 .home:hover{
 	background-image: linear-gradient(to bottom,#00e6e6, white);
 	color: white;
+	text-decoration: none;
 }
 
   

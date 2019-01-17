@@ -7,18 +7,15 @@
 
 }
 
-.navigationBar ul {
-	
+.navigationBar ul {	
   list-style: none;
   padding: 0;
   margin: 0;
   background: transparent;
- 
 }
 
 
 .navigationBar a{
-
 	border-radius: 2px;
 	line-height: 60px;
     padding: 0 30px;
@@ -26,10 +23,8 @@
 	color: whitesmoke;
 	transition: all .30s ease;
 	position: relative;
-
-
-
 }
+
 nav li{
 	float: left;
 }
