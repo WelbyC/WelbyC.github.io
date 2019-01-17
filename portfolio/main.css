@@ -1,12 +1,17 @@
 body {
-  margin: 30px auto;
-  max-width: 60%;
+  /*
+  margin: auto;
+  
+  width: 1060px;
+  */
   font-family: "Helvetica", "Arial", sans-serif;
   line-height: 1.5;
-  padding: 30px 20px;
+
   text-align: center;
   background: linear-gradient(#ccffff,white);
-  color: #330033;
+  color: black;
+  
+
 }
 
 h1 {
@@ -33,9 +38,19 @@ creating a new class. We can apply this to div elements to create different
 portfolio entries */
 
 .portfolio-item {
+  /*
   margin-top: 60px;
+  */
   padding: 30px;
 
+  width: 1000px;
+	background-repeat: inherit;
+	background-position: left top;
+	background-attachment: fixed;
+	margin-top: 0;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
   background: linear-gradient(white,purple);
   color:#00004d;
 }
@@ -45,13 +60,14 @@ font-size: 90;
 text-decoration: none
 }
 .portfolio-item img{
-  max-width: 100%;
+
     display: block;
   margin: 0px auto;
 
 }
 
 .navigationBar {
+
   background-image: linear-gradient(to top right,#4dffff, magenta);
 }
 
@@ -89,4 +105,48 @@ color: white;
 }
 
 
+
+
+/* -------------------------------------------------------------*/
+
+
+.navigationBar2 {
+  margin: auto;
+  
+  width: 1060px;
+  background-image: linear-gradient(to top right,#4dffff, magenta);
+}
+
+.navigationBar2 ul {
+list-style: none;
+padding: 0;
+margin: 0;
+background: transparent;
+overflow: hidden;
+}
+
+
+.navigationBar2 a{
+float: left;
+line-height: 50px;
+padding: 0 20px;
+text-decoration: none;
+color: black;
+
+}
+
+
+ 
+.github:hover{
+background-image: linear-gradient(to top right,#4dffff, magenta);
+color: white;
+}
+.portfolio:hover{
+background-image: linear-gradient(to top right,#4dffff, magenta);
+color: white;
+}
+.home:hover{
+background-image: linear-gradient(to top right,#4dffff, magenta);
+color: white;
+}
 
