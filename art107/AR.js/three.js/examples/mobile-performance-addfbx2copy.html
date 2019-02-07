@@ -187,11 +187,11 @@
         
         ///////////////////////////////////////////////////////////
         //add icosphere test from 3js playground
-        // geometry = new THREE.IcosahedronGeometry(.3, 0); //edit scale (in this code a scale of 1 = size of target image)
-        // var material	= new THREE.MeshNormalMaterial(); 
-        // var mesh	= new THREE.Mesh( geometry, material );
-        // mesh.position.y	= 0.5 //position y equals how far away from target 
-        // arWorldRoot.add( mesh ); //instead of adding mesh to the scene right away we add only when the target is detected
+        geometry = new THREE.IcosahedronGeometry(.3, 0); //edit scale (in this code a scale of 1 = size of target image)
+        var material	= new THREE.MeshNormalMaterial(); 
+        var mesh	= new THREE.Mesh( geometry, material );
+        mesh.position.y	= 0.5 //position y equals how far away from target 
+        arWorldRoot.add( mesh ); //instead of adding mesh to the scene right away we add only when the target is detected
         //end icosphere code
         ///////////////////////////////////////////////////////////
         geometry = new THREE.IcosahedronGeometry(150, 1);
@@ -216,21 +216,21 @@ mesh.scale.x = mesh.scale.y = mesh.scale.z = 0.73;
         
         ///////////////////////////////////////////////////////////
         // add a fbx model with animation
-        var loader = new THREE.FBXLoader();
-        loader.load( '../../data/data/handGLoptB.fbx', function ( object ) {
-            object.mixer = new THREE.AnimationMixer( object );
-            mixers.push( object.mixer );
-            var action = object.mixer.clipAction( object.animations[ 0 ] );
-            action.play();
-            object.traverse( function ( child ) {
-                if ( child.isMesh ) {
-                    child.castShadow = true;
-                    child.receiveShadow = true;
-                }
-            } );
-            object.scale.set(.02, .02, .02);
-            arWorldRoot.add( object );
-        } );
+        // var loader = new THREE.FBXLoader();
+        // loader.load( '../../data/data/handGLoptB.fbx', function ( object ) {
+        //     object.mixer = new THREE.AnimationMixer( object );
+        //     mixers.push( object.mixer );
+        //     var action = object.mixer.clipAction( object.animations[ 0 ] );
+        //     action.play();
+        //     object.traverse( function ( child ) {
+        //         if ( child.isMesh ) {
+        //             child.castShadow = true;
+        //             child.receiveShadow = true;
+        //         }
+        //     } );
+        //     object.scale.set(.02, .02, .02);
+        //     arWorldRoot.add( object );
+        // } );
         //end fbx code
         ///////////////////////////////////////////////////////////
         
@@ -239,46 +239,46 @@ mesh.scale.x = mesh.scale.y = mesh.scale.z = 0.73;
          //add obj model (static)
          // obj texture
 
-         var manager = new THREE.LoadingManager();
-         manager.onProgress = function ( item, loaded, total ) {
+//          var manager = new THREE.LoadingManager();
+//          manager.onProgress = function ( item, loaded, total ) {
 
-             console.log( item, loaded, total );
+//              console.log( item, loaded, total );
 
-         };
+//          };
 
-         var textureLoader = new THREE.TextureLoader( manager );
-         var texture = textureLoader.load( '../../data/data/UV_Grid_Sm.jpg' );
+//          var textureLoader = new THREE.TextureLoader( manager );
+//          var texture = textureLoader.load( '../../data/data/UV_Grid_Sm.jpg' );
 
-         // obj model
-         var onProgress = function ( xhr ) {
-             if ( xhr.lengthComputable ) {
-                 var percentComplete = xhr.loaded / xhr.total * 100;
-                 console.log( Math.round(percentComplete, 2) + '% downloaded' );
-             }
-         };
+//          // obj model
+//          var onProgress = function ( xhr ) {
+//              if ( xhr.lengthComputable ) {
+//                  var percentComplete = xhr.loaded / xhr.total * 100;
+//                  console.log( Math.round(percentComplete, 2) + '% downloaded' );
+//              }
+//          };
 
-         var onError = function ( xhr ) {
-         };
+//          var onError = function ( xhr ) {
+//          };
 
-         var loader = new THREE.OBJLoader( manager );
-         loader.load( '../../data/data/male02/male02.obj', function ( object ) {
+//          var loader = new THREE.OBJLoader( manager );
+//          loader.load( '../../data/data/male02/male02.obj', function ( object ) {
 
-             object.traverse( function ( child ) {
+//              object.traverse( function ( child ) {
 
-                 if ( child instanceof THREE.Mesh ) {
+//                  if ( child instanceof THREE.Mesh ) {
 
-                     child.material.map = texture;
+//                      child.material.map = texture;
 
-                 }
+//                  }
 
-             } );
+//              } );
 
- //					object.position.y = - 95;
- //					scene.add( object );
-             object.scale.set(.02, .02, .02);
-             arWorldRoot.add( object );
+//  //					object.position.y = - 95;
+//  //					scene.add( object );
+//              object.scale.set(.02, .02, .02);
+//              arWorldRoot.add( object );
 
-         }, onProgress, onError );
+//          }, onProgress, onError );
 
          //end obj code
         ///////////////////////////////////////////////////////////
