@@ -204,6 +204,7 @@
         
         /////////////////////////////////////////////////////////
         // add a taurus with rotation animation
+        /*
         geometry = new THREE.TorusKnotGeometry(0.3,0.1,64,16);
         material = new THREE.MeshNormalMaterial(); 
         mesh = new THREE.Mesh( geometry, material );
@@ -211,6 +212,12 @@
         arWorldRoot.add( mesh );
         onRenderFcts.push(function(){
             mesh.rotation.x += 0.1
+        */
+        geometry = new THREE.IcosahedronGeometry(150, 1);
+        material = new THREE.MeshNormalMaterial({shading: THREE.FlatShading});
+        mesh = new THREE.Mesh(geometry, material);
+        mesh.scale.x = mesh.scale.y = mesh.scale.z = 0.73;
+
         })
         // end taurus code
        /////////////////////////////////////////////////////////
@@ -218,6 +225,7 @@
         
         ///////////////////////////////////////////////////////////
         // add a fbx model with animation
+        /*
         var loader = new THREE.FBXLoader();
         loader.load( '../../data/data/handGLoptB.fbx', function ( object ) {
             object.mixer = new THREE.AnimationMixer( object );
@@ -233,6 +241,7 @@
             object.scale.set(.02, .02, .02);
             arWorldRoot.add( object );
         } );
+        */
         //end fbx code
         ///////////////////////////////////////////////////////////
         
