@@ -195,9 +195,25 @@
         //end icosphere code
         ///////////////////////////////////////////////////////////
         geometry = new THREE.IcosahedronGeometry(150, 1);
-material = new THREE.MeshNormalMaterial({shading: THREE.FlatShading});
-mesh = new THREE.Mesh(geometry, material);
-mesh.scale.x = mesh.scale.y = mesh.scale.z = 0.73;
+        material = new THREE.MeshNormalMaterial({shading: THREE.FlatShading});
+        mesh = new THREE.Mesh(geometry, material);
+        mesh.scale.x = mesh.scale.y = mesh.scale.z = 0.73;
+
+
+                var onError = function () { };
+                THREE.Loader.Handlers.add( /\.dds$/i, new THREE.DDSLoader() );
+                new THREE.MTLLoader()
+                .setPath( '../../data/data/' )
+                .load( 'mayastuff.mtl', function ( materials ) {
+                materials.preload();
+                new THREE.OBJLoader()
+                    .setMaterials( materials )
+                    .setPath( '../../data/data/' )
+                    .load( 'mayastuff.obj', function ( object ) {
+                        object.scale.set(.4, .4, .4);
+                        arWorldRoot.add( object );
+                    }, onProgress, onError );
+            } );
 
         
         ///////////////////////////////////////////////////////////
