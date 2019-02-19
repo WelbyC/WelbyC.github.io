@@ -212,13 +212,14 @@
         arWorldRoot.add( mesh );
         onRenderFcts.push(function(){
             mesh.rotation.x += 0.1
+        })
         */
         geometry = new THREE.IcosahedronGeometry(150, 1);
         material = new THREE.MeshNormalMaterial({shading: THREE.FlatShading});
         mesh = new THREE.Mesh(geometry, material);
         mesh.scale.x = mesh.scale.y = mesh.scale.z = 0.73;
 
-        })
+    
         // end taurus code
        /////////////////////////////////////////////////////////
         
