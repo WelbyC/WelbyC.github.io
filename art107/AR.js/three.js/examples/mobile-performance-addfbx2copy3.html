@@ -192,7 +192,10 @@
         //add the geometry, material, and mesh lines from the 3js GUI
         //MAKE SURE SCALE IS 1 (a scale of 1 will mean your object is as big as the image target)
         geometry = new THREE.CubeGeometry(1, 1, 1);
-        material = new THREE.MeshNormalMaterial({shading: THREE.FlatShading});
+        material = new THREE.MeshNormalMaterial({
+            transparent : true,
+            opacity: 0.5,
+            shading: THREE.FlatShading});
         mesh = new THREE.Mesh(geometry, material);
         
         //Keep these lines
