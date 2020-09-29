@@ -1,23 +1,28 @@
 {
-  "name": "github_website",
+  "name": "website",
   "version": "1.0.0",
   "description": "",
   "main": "game.js",
+  "dependencies": {
+    "connect": "^3.7.0",
+    "express": "^4.17.1",
+    "serve-static": "^1.14.1",
+    "server": "^1.0.30"
+  },
+  "devDependencies": {},
   "scripts": {
-    "start": "node node_modules/server/server.js",
+    "start": " node node_modules/server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/WelbyC/WelbyC.github.io.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/WelbyC/WelbyC.github.io/issues"
   },
-  "homepage": "https://github.com/WelbyC/WelbyC.github.io#readme",
-  "dependencies": {
-    "server": "^1.0.30"
-  }
+  "homepage": "https://github.com/WelbyC/WelbyC.github.io#readme"
 }
