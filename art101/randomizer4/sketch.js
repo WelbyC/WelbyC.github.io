@@ -94,11 +94,23 @@ function draw() {
 function randomLife() {
   textSize(32);
   fill(0, 102, 153);
-  text(fates[int(random(0, fates.length - 1))], random(0, 700), random(0, 700));
+  text(
+    fates[int(random(0, fates.length - 1))],
+    random(0, 700),
+    random(0, height)
+  );
 
-  text(fates[int(random(0, fates.length - 1))], random(0, 700), random(0, 700));
+  text(
+    fates[int(random(0, fates.length - 1))],
+    random(0, 700),
+    random(0, height)
+  );
 
-  text(fates[int(random(0, fates.length - 1))], random(0, 700), random(0, 700));
+  text(
+    fates[int(random(0, fates.length - 1))],
+    random(0, 700),
+    random(0, height)
+  );
 
   count++;
 }
