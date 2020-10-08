@@ -38,8 +38,9 @@ function setup() {
   deathButton = createButton("Erase");
   deathButton.style(
     "background-image",
-    "linear-gradient(to right, white, black)"
+    "linear-gradient(to right, black, red)"
   );
+  deathButton.style("color", "white");
   deathButton.size(100, 50);
 }
 
