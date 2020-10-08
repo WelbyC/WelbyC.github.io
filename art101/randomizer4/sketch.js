@@ -70,7 +70,7 @@ function draw() {
     nameInput.show();
     fateButton.show();
   }
-  if (count > 60 && count < 1000) {
+  if (count > 40 && count < 1000) {
     randomLife();
   }
   if (count2 > 1) {
