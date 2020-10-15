@@ -1,91 +1,94 @@
 .navigationBar {
-	
-	/*background-image: linear-gradient(to top right,#4dffff, magenta);*/
+  /*background-image: linear-gradient(to top right,#4dffff, magenta);*/
 
-	background-image: linear-gradient(to top right,#001c49, #001c49);
-
-
+  background-image: linear-gradient(to top right, #001c49, #001c49);
 }
 
-.navigationBar ul {	
+.navigationBar ul {
   list-style: none;
   padding: 0;
   margin: 0;
   background: transparent;
 }
 
-
-.navigationBar a{
-	border-radius: 2px;
-	line-height: 60px;
-    padding: 0 30px;
-   text-decoration: none;
-	color: whitesmoke;
-	transition: all .30s ease;
-	position: relative;
+.navigationBar a {
+  border-radius: 2px;
+  line-height: 60px;
+  padding: 0 30px;
+  text-decoration: none;
+  color: whitesmoke;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
-nav li{
-	float: left;
+nav li {
+  float: left;
 }
-nav a{
-	display:block;
+nav a {
+  display: block;
 }
 
-
-
-
-   
 nav .github:hover {
-	/*background-image: linear-gradient(to top right,#4dffff, magenta);*/
-	background: white;
-	color: black;
-	text-decoration: none;
-
+  /*background-image: linear-gradient(to top right,#4dffff, magenta);*/
+  background: white;
+  color: black;
+  text-decoration: none;
 }
 nav .portfolio:hover {
-	background: white/*#ccffff*//*#4dffff*/;
-	color: black;
-	text-decoration: none;
-
+  background: white /*#ccffff*/ /*#4dffff*/;
+  color: black;
+  text-decoration: none;
 }
 nav .home:hover {
-	background: white;
-	color: black;
-	text-decoration: none;
-
+  background: white;
+  color: black;
+  text-decoration: none;
 }
 
-.dropdown{
-	position: relative;
-	
-
+.dropdown {
+  position: relative;
 }
 
-.dropdown-links{
-	opacity:0;
-	visibility: hidden;
-	position: absolute;
-	background: #001c49
-	
+.dropdown-links {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  background: #001c49;
 }
 
-.dropdown-links a{
-float: none;
-
-
+.dropdown-links a {
+  float: none;
 }
 
-.dropdown-links a:hover{
-	background: #ccffff/*#4dffff*/;
-	text-decoration: none;
-	color: black;
-	
+.dropdown-links a:hover {
+  background: #ccffff /*#4dffff*/;
+  text-decoration: none;
+  color: black;
 }
 .dropdown:hover .dropdown-links {
-	opacity:1;
-	visibility: visible;
-	text-decoration: none;
-
+  opacity: 1;
+  visibility: visible;
+  text-decoration: none;
+}
+.sub-dropdown-links {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  background: #001c49;
 }
 
+.sub-dropdown-links a {
+  float: none;
+  display: inline;
+}
+
+.sub-dropdown-links a:hover {
+  background: #ccffff /*#4dffff*/;
+  text-decoration: none;
+  color: black;
+}
+.sub-dropdown:hover .sub-dropdown-links {
+  opacity: 1;
+  visibility: visible;
+  text-decoration: none;
+}

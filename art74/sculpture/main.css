@@ -1,0 +1,121 @@
+body {
+  /*
+  margin: auto;
+  
+  width: 1060px;
+  */
+  font-family: "Helvetica", "Arial", sans-serif;
+  line-height: 1.5;
+
+  text-align: center;
+  background: linear-gradient(black, #4d0000);
+  color: black;
+}
+
+h1 {
+  padding: 20px 0px 10px 0px;
+}
+
+/* This changes color and removes default underline in links  */
+
+a {
+  color: blue;
+  text-decoration: none;
+}
+
+/* Centers images */
+
+img {
+}
+
+/* When you put a period in front of a CSS declaration, it indicates you are
+creating a new class. We can apply this to div elements to create different
+portfolio entries */
+
+.portfolio-item {
+  /*
+  margin-top: 60px;
+  */
+  padding: 30px;
+
+  width: 1000px;
+  background-repeat: inherit;
+  background-position: left top;
+  background-attachment: fixed;
+  margin-top: 0;
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-left: auto;
+  background: linear-gradient(black, green, #ffd700);
+  color: #00004d;
+}
+.portfolio-item a {
+  color: #69cbbb;
+  font-size: 90;
+  text-decoration: none;
+}
+.portfolio-item img {
+  display: blo ck;
+  margin: 0px auto;
+}
+
+.navigationBar {
+  background-image: linear-gradient(to top, black);
+}
+
+.navigationBar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: transparent;
+  overflow: hidden;
+}
+
+.navigationBar a {
+  float: left;
+  line-height: 50px;
+  padding: 0 20px;
+  text-decoration: none;
+  color: white;
+}
+
+.github:hover {
+  background-image: linear-gradient(to top right, black, #4d0000);
+  color: white;
+}
+.portfolio:hover {
+  background-image: linear-gradient(to top right, black, #4d0000);
+  color: white;
+}
+.home:hover {
+  background-image: linear-gradient(to top right, black, #4d0000);
+  color: white;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-links {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  background-image: linear-gradient(to top right, black, #4d0000);
+}
+
+.dropdown-links a {
+  float: block;
+}
+
+.dropdown-links a:hover {
+  background-image: linear-gradient(to top right, black, #4d0000);
+  text-decoration: none;
+  color: white;
+}
+.dropdown:hover .dropdown-links {
+  opacity: 1;
+  visibility: visible;
+  text-decoration: none;
+}
+
+/* -------------------------------------------------------------*/
