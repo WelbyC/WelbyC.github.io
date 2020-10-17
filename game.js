@@ -68,11 +68,11 @@ function setup(){
 function draw(){
 background(255);
 	textSize(width/50);
-	text("Controls: W,A,S,D to move to a door or portal", width/2-width/7,height-height/1.1);
+	text("Controls: W,A,S,D to move to a door or portal", width/2-width/5,height-height/1.1);
     textSize(width/80);
-    text("Infinite Jumps", width/2,height-height/1.15);
+    text("Infinite Jumps", width/2-width/26,height-height/1.15);
     textSize(width/80);
-	text("Click on character to change", width/2-width/25,height-height/1.20);
+	text("Click on character to change", width/2-width/13,height-height/1.20);
     textSize(width/80);
     text("GitHub", width/2.07,height - height/2);
     textSize(width/80);
