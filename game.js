@@ -129,7 +129,7 @@ background(255);
     }
     else
     if(entered == 0){
-  door.changeAnimation('closedDoor');
+         door.changeAnimation('closedDoor');
     }
   door.onMousePressed = function() {
     door.changeAnimation('openDoor');
