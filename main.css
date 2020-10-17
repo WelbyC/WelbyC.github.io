@@ -75,14 +75,17 @@ nav .home:hover {
   visibility: hidden;
   position: absolute;
   background: #001c49;
+  /*top: 0;*/
+  /*left: 100%;*/
 }
 
 .sub-dropdown-links a {
   float: none;
-  display: inline;
+  display: block;
 }
 
 .sub-dropdown-links a:hover {
+  display: block;
   background: #ccffff /*#4dffff*/;
   text-decoration: none;
   color: black;
