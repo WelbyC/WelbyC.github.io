@@ -46,7 +46,7 @@ portfolio entries */
   margin-right: auto;
   margin-bottom: 0;
   margin-left: auto;
-  background: linear-gradient(black, green, #ffd700);
+  background: linear-gradient(#fdfff5, #fdfff5, black);
   color: #00004d;
 }
 .portfolio-item a {
