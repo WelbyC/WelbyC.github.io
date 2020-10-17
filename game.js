@@ -53,7 +53,7 @@ function setup(){
     //this hole sprite leads to art portfolio
 	hole = createSprite(width - width/8.6,height - height/3,200,150);
 	hole.addAnimation('hole','portfolio/3A/hole0.png','portfolio/3A/hole1.png','portfolio/3A/hole2.png','portfolio/3A/hole3.png');
-    hole.setCollider("circle",0,0,0,25);
+    hole.setCollider("circle",0,0,25);
     
 
 
@@ -121,15 +121,28 @@ background(255);
     }
     if(virus.overlap(door)){
     door.changeAnimation('openDoor');
+        if(entered == 0)
+        {
+            setTimeout(window.location.href ="https://github.com/WelbyC",1500);
+            entered = 1;
+        }
+    }
+    else
+    if(entered == 0){
+  door.changeAnimation('closedDoor');
+    }
+  door.onMousePressed = function() {
+    door.changeAnimation('openDoor');
     if(entered == 0)
     {
         setTimeout(window.location.href ="https://github.com/WelbyC",1500);
         entered = 1;
     }
-    }
-    else
-  door.changeAnimation('closedDoor');
-
+  };
+  
+hole.onMousePressed = function() {
+    {window.location.href ="https://welbyc.github.io/portfolio/index.html"}
+  };
 
   for(var i=0; i<allSprites.length; i++) {
   var s = allSprites[i];
@@ -142,5 +155,8 @@ background(255);
 
 drawSprites();
 
+
+  
+  
 
 }
