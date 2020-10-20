@@ -5,12 +5,7 @@ body {
   text-align: center;
 }
 canvas {
-  margin: auto;
-  top: 0;
-  left: 0;
-  position: absolute;
   margin: 0 auto 0 auto;
   display: block;
   border: 10px solid blue;
-  z-index: -1;
 }

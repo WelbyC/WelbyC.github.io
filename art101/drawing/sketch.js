@@ -2,7 +2,7 @@ let array = [];
 let ellipses = false
 let lines = false
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(windowWidth, windowHeight);
   
   background(220, 50, 25)
 }
