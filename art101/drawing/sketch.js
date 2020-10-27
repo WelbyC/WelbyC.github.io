@@ -3,10 +3,11 @@ let ellipses = false
 let lines = false
 let noiseOffset = 0.0
 let strokeWidth = 5
+let numCells
 
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(600, 600);
   
   background(220, 50, 25)
 
@@ -14,11 +15,11 @@ function setup() {
 }
 
 function draw() {
-  background(220, 50, 25, 10)
-  strokeWeight(strokeWidth)
+  //background(220, 50, 25, 10)
+//  strokeWeight(strokeWidth)
 
-  noiseOffset += 0.05
-  strokeWidth = noise(noiseOffset) * 100
+//  noiseOffset += 0.05
+// strokeWidth = noise(noiseOffset) * 100
 
   
 
@@ -49,10 +50,10 @@ function draw() {
   if(!keyIsPressed){
     lines = false
     ellipses = false
-    background(220, 50, 25)
+  //  background(220, 50, 25)
   }
-  console.log(lines)
-  
+ 
+  drawGrid()
   }
 
 
@@ -66,4 +67,20 @@ function keyTyped(){
   }
 
   return false;
+}
+
+function drawGrid(){
+  numCells = 20
+  fillColor = 255
+  for(let i = 0; i <= width; i+=width / numCells){
+    for(let j =0; j <= height; j +=height / numCells){
+      if(fillColor ===255){
+        fillColor = 200
+      } else{
+        fillColor = 255
+      }
+      fill(fillColor)
+      rect(i, j, width / numCells, height / numCells)
+    }
+  }
 }

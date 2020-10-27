@@ -6,9 +6,12 @@ body {
 }
 canvas {
   margin: auto;
+  /*  
   top: 0;
   left: 0;
-  position: absolute;
+  */
+
+  position: center;
   margin: 0 auto 0 auto;
   display: block;
   border: 10px solid blue;
