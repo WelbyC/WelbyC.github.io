@@ -1,9 +1,14 @@
 let state = "title"
 let cnv
 let points = 0
+let w = 600
+let h = 600
+let coin = []
 
 function setup() {
-  cnv = createCanvas(600, 600);
+  cnv = createCanvas(w, h);
+  player = new Player()
+  coin.push(new Coin())
 
 }
 
@@ -27,7 +32,27 @@ function draw() {
 
 }
 
-
+function keyPressed(){
+  if(keyCode == LEFT_ARROW)
+  {
+    player.direction = "left"
+  }
+  else if(keyCode == RIGHT_ARROW)
+  {
+    player.direction = "right"
+  }
+  else if(keyCode == UP_ARROW)
+  {
+    player.direction = "up"
+  }
+  else if(keyCode == DOWN_ARROW)
+  {
+    player.direction = "down"
+  }
+  else if (key = " "){
+    player.direction = "still"
+  }
+}
 
 
 function title(){
@@ -46,8 +71,27 @@ function titleMouseClicked(){
 
 function level1(){
   background(50, 150, 200)
-  text("click for points", 250, 400)
-  
+if(random(1)<= 0.01){
+  coin.push(new Coin())
+}
+
+  player.display()
+  player.move()
+
+
+  for(let i = 0; i < coin.length; i++){
+    coin[i].display()
+    coin[i].move()
+  }
+
+  //check collision
+  for(let i = coin.length-1; i >= 0; i--){
+    if(dist(player.x, player.y, coin[i].x, coin[i].y)<= (player.r + coin[i].r)/2){
+      points++
+      coin.splice(i, 1)
+    }
+}
+text("points: "+ points, w/4, h-30)
 }
 function win(){
   background(255,100,200)
