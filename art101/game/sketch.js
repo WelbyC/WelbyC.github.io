@@ -29,7 +29,23 @@ function draw() {
     default:
       break
          }
-
+/*
+        if (keyIsDown(LEFT_ARROW)) {
+          player.direction = "left"
+        }
+      
+        if (keyIsDown(RIGHT_ARROW)) {
+          player.direction = "right"
+        }
+      
+        if (keyIsDown(UP_ARROW)) {
+          player.direction = "up"
+        }
+      
+        if (keyIsDown(DOWN_ARROW)) {
+          player.direction = "down"
+        }
+*/
 }
 
 function keyPressed(){
@@ -49,9 +65,10 @@ function keyPressed(){
   {
     player.direction = "down"
   }
-  else if (key = " "){
-    player.direction = "still"
-  }
+
+}
+function keyReleased(){
+  player.direction = "still"
 }
 
 
