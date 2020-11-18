@@ -9,6 +9,7 @@ let poseNet;
 let pose;
 let skeleton;
 let img;
+let img2;
 
 function setup() {
   createCanvas(640, 480);
@@ -17,6 +18,7 @@ function setup() {
   poseNet = ml5.poseNet(video, modelLoaded);
   poseNet.on('pose', gotPoses);
   img = loadImage('rocketship.png');
+  img2 = loadImage('eye.jpg');
 }
 
 function gotPoses(poses) {
@@ -41,6 +43,8 @@ function draw() {
     let d = dist(eyeR.x, eyeR.y, eyeL.x, eyeL.y);
     fill(255, 0, 0);
     image(img,pose.nose.x, pose.nose.y, 50, 50);
+    image(img2,eyeR.x, eyeR.y, 50, 50);
+    image(img2,eyeL.x, eyeL.y, 50, 50);
     fill(0, 0, 255);
     ellipse(pose.rightWrist.x, pose.rightWrist.y, 32);
     ellipse(pose.leftWrist.x, pose.leftWrist.y, 32);
