@@ -1,3 +1,4 @@
+//normal game stuff
 let state = "title"
 let cnv
 let points = 0
@@ -5,13 +6,45 @@ let w = 600
 let h = 600
 let coin = []
 
+//posenet stuff
+let video;
+let poseNet;
+let pose;
+let skeleton;
+let img;
+
+
 function setup() {
-  img = loadImage('battery.jpg');
+  
   cnv = createCanvas(w, h);
   player = new Player()
   coin.push(new Coin())
 
+
+ //posenet stuff
+  video = createCapture(VIDEO);
+  video.hide();
+  poseNet = ml5.poseNet(video, modelLoaded);
+  poseNet.on('pose', gotPoses);
+
+  
+
 }
+
+//posenet stuff
+function gotPoses(poses) {
+  //console.log(poses); 
+  if (poses.length > 0) {
+    pose = poses[0].pose;
+    skeleton = poses[0].skeleton;
+  }
+}
+
+function modelLoaded() {
+  console.log('poseNet ready');
+}
+
+
 
 function draw() {
   switch(state){
@@ -89,6 +122,38 @@ function titleMouseClicked(){
 
 function level1(){
   background(50, 150, 200)
+//posenet stuff
+  image(video, 0, 0);
+
+  if (pose) {
+    let eyeR = pose.rightEye;
+    let eyeL = pose.leftEye;
+    let d = dist(eyeR.x, eyeR.y, eyeL.x, eyeL.y);
+    fill(255, 0, 0);
+    ellipse(img,pose.nose.x, pose.nose.y, );
+    
+
+    fill(0, 0, 255);
+
+    
+    for (let i = 0; i < pose.keypoints.length; i++) {
+      let x = pose.keypoints[i].position.x;
+      let y = pose.keypoints[i].position.y;
+      fill(0,255,0);
+      ellipse(x,y,16,16);
+    }
+    
+    for (let i = 0; i < skeleton.length; i++) {
+      let a = skeleton[i][0];
+      let b = skeleton[i][1];
+      strokeWeight(2);
+      stroke(255);
+      line(a.position.x, a.position.y,b.position.x,b.position.y);      
+    }
+  }
+
+//normal game stuff
+
 if(random(1)<= 0.01){
   coin.push(new Coin())
 }
@@ -125,7 +190,7 @@ function youWinMouseClicked(){
   points = 0
 }
 function level1MouseClicked(){
-  points++;
+  
   if(points >=10){
     state = "win"
   }

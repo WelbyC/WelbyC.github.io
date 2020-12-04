@@ -43,8 +43,8 @@ function draw() {
     let d = dist(eyeR.x, eyeR.y, eyeL.x, eyeL.y);
     fill(255, 0, 0);
     image(img,pose.nose.x, pose.nose.y, 50, 50);
-    image(img2,eyeR.x, eyeR.y, 50, 50);
-    image(img2,eyeL.x, eyeL.y, 50, 50);
+    image(img2,eyeR.x-50, eyeR.y-50, 50, 50);
+    image(img2,eyeL.x-50, eyeL.y-50, 50, 50);
     fill(0, 0, 255);
     ellipse(pose.rightWrist.x, pose.rightWrist.y, 32);
     ellipse(pose.leftWrist.x, pose.leftWrist.y, 32);
