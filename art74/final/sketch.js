@@ -216,7 +216,7 @@ function time(){
   if (frameCount % 60 == 0 && timer > 0) { // if the frameCount is divisible by 60, then a second has passed. it will stop at 0
     timer --;
   }
-  if(timer < 58){
+  if(timer < 30){
     for(let i = 0; i < timemachine.length; i++){
       timemachine[i].display()
       timemachine[i].move()
