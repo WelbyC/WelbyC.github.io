@@ -194,7 +194,7 @@ text("points: "+ points, w/4, h-30)
 text("time: "+ timer, w/10, h-30)
 }
 function win(){
-  background(255,100,200)
+  background(51, 204, 255)
   textSize(82)
   stroke(255)
   text("YOU WIN", w/2-200, 100)
