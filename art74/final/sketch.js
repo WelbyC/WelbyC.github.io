@@ -206,6 +206,7 @@ function youWinMouseClicked(){
   state = "title"
   points = 0
   timer = 60
+  future = false
 }
 function level1MouseClicked(){
   
