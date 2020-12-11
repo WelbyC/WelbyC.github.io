@@ -9,7 +9,7 @@ class Player{
     }
     display(x,y){
         this.x=x-50
-        this.y=y-300
+        this.y=y-100
         image(this.img, this.x-20, this.y,this.img.width/2, this.img.height/2)
 
     }

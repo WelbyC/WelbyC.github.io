@@ -23,9 +23,9 @@ let skeleton;
 let img;
 
 function preload(){
-   playerImg = loadImage("bucket.png")
-   coinImg = loadImage("waterdrop.png")
-   timemachineImg = loadImage("clock.png")
+   playerImg = loadImage("masker.png")
+   coinImg = loadImage("vaccine.png")
+   timemachineImg = loadImage("covid.png")
 }
 function setup() {
   
@@ -100,6 +100,13 @@ function draw() {
           player.direction = "down"
         }
 */
+
+if(future){
+  coin.splice(0, coin.length)
+  timemachine.splice(0,timemachine.length)
+}
+
+  
 }
 /*
 function keyPressed(){
@@ -130,15 +137,15 @@ function title(){
   background(100)
   textSize(82)
   stroke(255)
-  text("Catching the Rain", w/2-300, 100)
+  text("Dodging Covid AND Cure", w/2-440, 100)
   
   textSize(30)
   text("Click to start", w/2-70,300)
   textSize(20)
-  text("You are in the past trying to catch rain with the bucket on your head.", w/2-300,h/2)
-  text("You win when you gain enough water for the week to survie.", w/2-250,h/2+100)
-  text("You lose when you don't gain enough water for the week to survive.", w/2-300,h/2+200)
-  text("It only rains once a week.", w/2 -100,h/2+300)
+  text("You are scared of Covid-19 and the cure so you want to avoid getting it", w/2-270,h/2)
+  text("You win when you avoid both Covid-19 and the cure until it passes into nothing", w/2-300,h/2+100)
+  text("You lose when you either get the  recently released cure or the virus", w/2-260,h/2+200)
+  
 }
 
 function titleMouseClicked(){
@@ -161,11 +168,12 @@ function level1(){
 
 //normal game stuff
 
-if(random(1)<= 0.05){
+if(random(1)<= 0.01){
   coin.push(new Coin(coinImg))
 }
-
-
+if(random(1)<= 0.01){
+  timemachine.push(new Timemachine(timemachineImg))
+}
 
 
 
@@ -174,57 +182,62 @@ if(random(1)<= 0.05){
     coin[i].move()
   }
 
+  
+  for(let i = 0; i < timemachine.length; i++){
+    timemachine[i].display()
+    timemachine[i].move()
+  }
+
   //check collision
   for(let i = coin.length-1; i >= 0; i--){
     if(dist(player.x, player.y, coin[i].x, coin[i].y)<= (player.r + coin[i].r)/2){
       points++
-      coin.splice(i, 1)
+      future = true
+
       }
     }
   for(let i = timemachine.length-1; i >= 0; i--){
     if(dist(player.x, player.y, timemachine[i].x, timemachine[i].y)<= (player.r + timemachine[i].r)/2){
-      future = true;
-      timemachine.splice(i,1)
+      points++
+      future = true
+
       }
     }
-if (future == true){
-  points++
-}
-text("points: "+ points, w/4, h-30)
+
+
 text("time: "+ timer, w/10, h-30)
 }
 function win(){
-  background(255,100,200)
+  background(51, 204, 255)
   textSize(82)
   stroke(255)
   text("YOU WIN", w/2-200, 100)
   
   textSize(20)
   text("Click to restart", w/2-50,300) 
+  future = true
 }
 function youWinMouseClicked(){
   state = "title"
   points = 0
+  timer = 60
+  future = false
 }
 function level1MouseClicked(){
   
-  if(points >=105){
-    state = "win"
+  if(points >=1){
+    state = "lose"
   }
 }
 function time(){
   if (frameCount % 60 == 0 && timer > 0) { // if the frameCount is divisible by 60, then a second has passed. it will stop at 0
     timer --;
   }
-  if(timer < 58){
-    for(let i = 0; i < timemachine.length; i++){
-      timemachine[i].display()
-      timemachine[i].move()
-    }
+
   
-  }
+ 
   if (timer == 0) {
-    state = "lose"
+    state = "win"
   }
 }
 function lose(){
@@ -235,5 +248,9 @@ function lose(){
   
   textSize(20)
   text("Click to restart", w/2-50,300) 
+  
+
+  
+  
 }
 
